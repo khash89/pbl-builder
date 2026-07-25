@@ -1,0 +1,52 @@
+{
+  "name": "pbl-builder",
+  "version": "0.1.0",
+  "description": "Design Gold Standard Project Based Learning projects around one learner. Validates learner profiles and project plans, and reviews plans against the Essential Project Design Elements.",
+  "keywords": [
+    "pbl",
+    "project-based-learning",
+    "education",
+    "homeschool",
+    "curriculum",
+    "lesson-planning",
+    "academic-standards",
+    "instructional-design"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "pbl": "./src/cli.mjs",
+    "pbl-builder": "./src/cli.mjs"
+  },
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./standards/curate": "./src/standards/curate.mjs"
+  },
+  "files": [
+    "src/",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "test:watch": "node --test --watch \"test/**/*.test.mjs\"",
+    "lint": "node --check src/cli.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "commander": "^12.1.0",
+    "yaml": "^2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/pbl-builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OWNER/pbl-builder/issues"
+  },
+  "homepage": "https://github.com/OWNER/pbl-builder#readme"
+}

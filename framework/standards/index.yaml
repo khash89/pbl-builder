@@ -1,0 +1,160 @@
+# Locally available standards
+#
+# What ships in this repository. `pbl standards search` reads this index to know
+# which files to open.
+#
+# To add a jurisdiction, see PROVENANCE.md for the reproduction command, or
+# CONTRIBUTING.md for the contribution path.
+
+version: 1
+source: Learning Commons Knowledge Graph
+source_version: v1.11.0
+license: https://creativecommons.org/licenses/by/4.0/
+generated: "2026-07-24"
+total_rows: 2570
+total_bytes: 1911040
+
+jurisdictions:
+  - id: multi-state
+    name: Multi-State
+    dir: multi-state/
+    bundled: true
+    note: >
+      The nationally-used frameworks — Common Core, NGSS, C3, and WIDA. This is
+      the default and covers most users. If your state adopted or adapted one of
+      these, the codes here will usually match.
+    rows: 2570
+    files:
+      - file: multi-state/math.jsonl
+        subject: Mathematics
+        rows: 597
+        bytes: 423322
+        frameworks:
+          - id: CCSS.MATH
+            name: Common Core State Standards for Mathematics
+            rows: 597
+            grades: [K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+            languages: [en-US]
+
+      - file: multi-state/ela.jsonl
+        subject: English Language Arts
+        rows: 1465
+        bytes: 1156382
+        frameworks:
+          - id: CCSS.ELA-LITERACY
+            name: Common Core State Standards for English Language Arts & Literacy
+            rows: 1100
+            grades: [K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+            languages: [en-US]
+          - id: WIDA
+            name: WIDA English Language Development Standards
+            rows: 104
+            grades: [K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+            languages: [en-US]
+            note: >
+              Language-development standards for multilingual learners. Useful
+              alongside a content standard when the learner profile lists
+              english-language-development or academic-vocabulary.
+          - id: WIDA-DALE
+            name: WIDA DALE — Desarrollo Auténtico del Lenguaje Español
+            rows: 261
+            grades: [K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+            languages: [es-US]
+            note: >
+              Spanish-language development standards. A distinct framework, not a
+              translation of the English WIDA set. Standard text is in Spanish.
+
+      - file: multi-state/science.jsonl
+        subject: Science
+        rows: 208
+        bytes: 127488
+        frameworks:
+          - id: NGSS
+            name: Next Generation Science Standards
+            rows: 208
+            grades: [K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+            languages: [en-US]
+            note: >
+              These are the performance expectations. 208 is the complete set —
+              NGSS is deliberately far smaller than a typical state science
+              framework, which is why the row count looks low next to ELA.
+
+      - file: multi-state/social-studies.jsonl
+        subject: Social Studies
+        rows: 300
+        bytes: 206643
+        frameworks:
+          - id: C3
+            name: C3 Framework for Social Studies State Standards
+            rows: 300
+            grades: [K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+            languages: [en-US]
+
+# Not bundled — fetch on demand with:
+#   pbl standards sync --jurisdiction "<name>"
+#
+# The upstream Knowledge Graph carries these state frameworks. They are not in
+# git because together they are far larger than the multi-state slice and most
+# users need exactly one. The sync command caches into .cache/standards/.
+available_on_demand:
+  note: >
+    Row counts below are approximate, taken from the v1.11.0 export, and cover
+    the four core subjects. Availability varies by subject within a state.
+  jurisdictions:
+    - Arkansas
+    - California
+    - Colorado
+    - Florida
+    - Georgia
+    - Hawaii
+    - Idaho
+    - Illinois
+    - Indiana
+    - Iowa
+    - Kentucky
+    - Maine
+    - Maryland
+    - Massachusetts
+    - Mississippi
+    - New Jersey
+    - New York
+    - North Dakota
+    - Oklahoma
+    - Pennsylvania
+    - Rhode Island
+    - South Carolina
+    - South Dakota
+    - Tennessee
+    - Texas
+    - Utah
+    - Virginia
+    - Washington, D.C.
+    - Wisconsin
+    - Wyoming
+
+# Non-US and other frameworks
+other_frameworks:
+  note: >
+    The Knowledge Graph is US-focused. For any other framework — England's
+    National Curriculum, the IB, Australian Curriculum, a national curriculum —
+    set `jurisdiction` in the learner profile to a free-text label and enter
+    standards manually with `code` set to the real code from your own framework
+    documents. `pbl profile check` skips code resolution for jurisdictions it
+    doesn't have locally, so this works without warnings.
+
+    Never let an agent invent codes for a framework we don't ship. Use `TBD` and
+    look them up yourself.
+
+# Record shape — see ../../schema/README.md for the full description
+record_fields:
+  code: The official statement code. What you cite.
+  framework: Framework id, e.g. NGSS, CCSS.MATH, C3, WIDA.
+  jurisdiction: Multi-State, or a state name.
+  subject: One of Mathematics, English Language Arts, Science, Social Studies.
+  grades: Array of grade labels this applies to.
+  text: The standard's text, whitespace-normalised.
+  type: Always "Standard" in the bundled slice — containers are filtered out.
+  language: BCP-47 tag. Mostly en-US; the WIDA-DALE set is es-US.
+  license: CC BY 4.0 URL. Required for redistribution — do not strip.
+  attribution: Full upstream attribution chain. Required for redistribution — do not strip.
+  source_id: Upstream CASE identifier, for tracing back to the Knowledge Graph.

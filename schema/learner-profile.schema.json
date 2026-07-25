@@ -1,0 +1,361 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OWNER/pbl-builder/schema/learner-profile.schema.json",
+  "title": "PBL Builder Learner Profile",
+  "description": "Describes one learner. This is the primary input to project design — the project is designed outward from this document. Lives in the YAML frontmatter of learners/<slug>/learner-profile.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "learner",
+    "jurisdiction",
+    "subjects",
+    "standards_targets",
+    "success_skill_target",
+    "interests",
+    "strengths",
+    "preferences",
+    "needs",
+    "pbl_experience",
+    "context",
+    "constraints",
+    "goals_from_adult"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "description": "Schema version. Bump only on a breaking change."
+    },
+
+    "learner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "grade"],
+      "description": "Use a first name or a pseudonym. Never a full name.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "First name or pseudonym only."
+        },
+        "pronouns": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "e.g. 'she/her', 'they/them'. Omit if unknown — downstream text will use they/them."
+        },
+        "age": { "type": "integer", "minimum": 3, "maximum": 21 },
+        "grade": { "$ref": "#/$defs/grade" }
+      }
+    },
+
+    "jurisdiction": {
+      "type": "string",
+      "minLength": 2,
+      "default": "Multi-State",
+      "description": "Standards jurisdiction. 'Multi-State' covers CCSS Math, CCSS ELA, NGSS, and C3 social studies. Otherwise a US state name, or a free-text label for non-US frameworks. Selects which set `pbl standards` searches.",
+      "examples": ["Multi-State", "Texas", "Colorado", "England (National Curriculum)"]
+    },
+
+    "subjects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 2 },
+      "description": "Subject areas this project should cover.",
+      "examples": [["Science", "English Language Arts"]]
+    },
+
+    "standards_targets": {
+      "type": "array",
+      "minItems": 1,
+      "description": "What this learner actually needs to learn. Codes are validated against framework/standards/ by `pbl profile check` — a code that does not resolve is an error, not a warning.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["framework", "code", "text", "status"],
+        "properties": {
+          "framework": {
+            "type": "string",
+            "minLength": 2,
+            "description": "e.g. 'NGSS', 'CCSS.MATH', 'CCSS.ELA-LITERACY', 'C3', or a state framework name."
+          },
+          "code": {
+            "type": "string",
+            "minLength": 2,
+            "description": "The official code, or exactly 'TBD' if it could not be verified. Never invent a code that looks real."
+          },
+          "text": {
+            "type": "string",
+            "minLength": 10,
+            "description": "The standard's text, or a faithful paraphrase of what the learner must be able to do."
+          },
+          "status": {
+            "enum": ["not-started", "developing", "secure"],
+            "description": "Where the learner is now. Drives milestone type: not-started gets direct instruction, developing gets application and critique, secure is used as leverage and not retaught."
+          },
+          "notes": { "type": "string", "description": "Evidence for the status judgment." }
+        }
+      }
+    },
+
+    "success_skill_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skill", "dimensions", "current_level"],
+      "description": "EXACTLY ONE skill. A project that assesses five success skills teaches none of them.",
+      "properties": {
+        "skill": { "$ref": "#/$defs/success_skill" },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "type": "string", "minLength": 2 },
+          "description": "Which rubric rows to teach and assess. Must match dimension ids in framework/success-skills/<skill>.yaml. One or two is better than three."
+        },
+        "current_level": {
+          "$ref": "#/$defs/skill_level",
+          "description": "Where the learner sits now on the named dimensions."
+        },
+        "evidence": {
+          "type": "string",
+          "description": "What you observed that led to that level. Worth writing — it's what you compare against at the end."
+        }
+      }
+    },
+
+    "interests": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 3 },
+      "description": "At least two SPECIFIC things. 'Reading' and 'sports' are rejected by `pbl profile check` — they produce generic projects. Write what you'd actually see them doing: 'rewatches the same three nature documentaries', 'takes apart broken electronics'.",
+      "examples": [
+        ["takes apart broken appliances to see inside", "obsessed with the creek behind the house", "draws detailed maps of imaginary places"]
+      ]
+    },
+
+    "strengths": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 3 },
+      "description": "Observable behaviors, not traits. 'Smart' and 'good student' are rejected. 'Notices when an argument contradicts itself' is useful.",
+      "examples": [["will redo a drawing five times to get it right", "explains things clearly to younger kids"]]
+    },
+
+    "preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["product_modes", "work_mode", "choice_appetite", "audience_comfort"],
+      "description": "How this learner likes to work. Drives product selection and how much choice to offer.",
+      "properties": {
+        "product_modes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/product_mode" },
+          "description": "Ways of making things this learner is drawn to. Matched against the `modes` field of entries in framework/product-types.yaml to build the product menu."
+        },
+        "work_mode": {
+          "enum": ["solo", "with-a-partner", "with-an-adult", "small-group"],
+          "description": "Preferred working arrangement. Affects who provides critique and how the support plan is written."
+        },
+        "choice_appetite": {
+          "enum": ["low", "medium", "high"],
+          "description": "How much open choice helps versus paralyses. Low does not mean no choice — it means a narrow menu that widens as they gain footing."
+        },
+        "audience_comfort": {
+          "enum": ["low", "medium", "high"],
+          "description": "Comfort presenting to people. Low means build a comfort_ramp in the plan. It NEVER means drop the public audience."
+        },
+        "dislikes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Worth recording. 'Hates writing by hand' changes product choice more than most strengths do."
+        }
+      }
+    },
+
+    "needs": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Functional descriptions only — what helps them learn. Never diagnoses, IEP contents, medication, or assessment scores. Tags here are matched against framework/scaffolds.yaml, and every populated need must have at least one scaffold in the resulting plan.",
+      "properties": {
+        "reading_level": {
+          "type": "string",
+          "description": "Relative to grade, in plain terms.",
+          "examples": ["about two years below grade level", "at grade level", "reads well above grade but avoids long texts"]
+        },
+        "executive_function": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/need_tag" },
+          "description": "Task initiation, planning, time, working memory, task-switching."
+        },
+        "language_supports": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/need_tag" },
+          "description": "Academic vocabulary, English language development, expressive or receptive language."
+        },
+        "accommodations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Practical accommodations already in place. Free text — these come from you, not from a fixed list.",
+          "examples": [["extra time on written work", "text-to-speech for anything over a page"]]
+        },
+        "sensory_or_physical": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Anything affecting how they access the work or a venue. Relevant to field experiences and presentation logistics."
+        },
+        "none": {
+          "type": "boolean",
+          "description": "Set true to state explicitly that there are no additional needs. Distinguishes 'nothing to note' from 'not filled in yet'."
+        }
+      }
+    },
+
+    "pbl_experience": {
+      "enum": ["none", "some", "experienced"],
+      "description": "How much project-based work they've done. Sets scaffold density and how fast choice widens. 'none' plus low choice_appetite means a tightly structured first project — and that's fine."
+    },
+
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["setting", "adults_available", "weekly_hours"],
+      "properties": {
+        "setting": {
+          "enum": ["homeschool", "microschool", "tutoring", "classroom-pullout", "after-school", "other"],
+          "description": "Where this happens."
+        },
+        "adults_available": {
+          "type": "string",
+          "minLength": 3,
+          "description": "Who can support, and roughly how much. Determines what the support_plan can promise.",
+          "examples": ["one parent, most mornings", "tutor 2x/week for 90 min, no support between sessions"]
+        },
+        "weekly_hours": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 40,
+          "description": "Hours per week available for this project."
+        },
+        "community": {
+          "type": "string",
+          "description": "The local context the project can draw on and give back to. This is where authenticity comes from — be concrete.",
+          "examples": ["small farm town, creek runs behind the property, active watershed council"]
+        },
+        "resources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "What's actually available: tools, spaces, people, transport, a library card.",
+          "examples": [["3D printer at the library", "uncle is a civil engineer", "no car on weekdays"]]
+        }
+      }
+    },
+
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_weeks"],
+      "properties": {
+        "total_weeks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 40,
+          "description": "Weeks available. Under 3 is very hard to do well — sustained inquiry needs time."
+        },
+        "budget": { "type": "string", "description": "Money available for materials, if any.", "examples": ["under $50"] },
+        "travel_ok": { "type": "boolean", "description": "Can the project include going places?" },
+        "tech_available": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Devices, software, connectivity. Constrains product type more than people expect.",
+          "examples": [["shared laptop", "phone camera", "no video editing software"]]
+        },
+        "hard_dates": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Fixed dates to plan around — a co-op showcase, a council meeting, a trip.",
+          "examples": [["watershed council meets the first Tuesday of each month"]]
+        }
+      }
+    },
+
+    "goals_from_adult": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What YOU want out of this project, in your own words. Often the most useful field in the file — it surfaces the real goal, which is sometimes not academic at all.",
+      "examples": ["I want him to finish something he's proud of. He starts a lot and finishes almost nothing."]
+    },
+
+    "status": {
+      "enum": ["draft", "ready", "in-use", "archived"],
+      "default": "draft",
+      "description": "Profile lifecycle. `ready` means it has passed `pbl profile check`."
+    },
+    "updated": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date last revised. Profiles go stale — a year-old reading level is fiction."
+    }
+  },
+
+  "$defs": {
+    "grade": {
+      "enum": ["pre-k", "k", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+      "description": "Grade level as a string. Matches the gradeLevel values in the standards data."
+    },
+    "success_skill": {
+      "enum": [
+        "collaboration",
+        "critical-thinking",
+        "creativity",
+        "complex-communication",
+        "self-directed-learning"
+      ],
+      "description": "One of the five success skills. See framework/success-skills/."
+    },
+    "skill_level": {
+      "enum": ["beginning", "emerging", "developing", "demonstrating"],
+      "description": "The four performance levels used across all success skills rubrics."
+    },
+    "product_mode": {
+      "enum": [
+        "build-physical",
+        "write",
+        "draw-or-design",
+        "film-or-photograph",
+        "record-audio",
+        "perform-or-present",
+        "code-or-data",
+        "organize-an-event",
+        "teach-others",
+        "persuade-or-argue",
+        "map-or-diagram"
+      ],
+      "description": "Ways of making something. Deliberately about the ACT of making, not the artifact — a learner who likes 'build-physical' will take to a model or a prototype regardless of subject."
+    },
+    "need_tag": {
+      "enum": [
+        "task-initiation",
+        "planning-and-sequencing",
+        "time-management",
+        "working-memory",
+        "task-switching",
+        "sustained-attention",
+        "organization-of-materials",
+        "reading-comprehension",
+        "reading-fluency",
+        "written-expression",
+        "academic-vocabulary",
+        "english-language-development",
+        "oral-expression",
+        "listening-comprehension",
+        "math-fluency",
+        "frustration-tolerance",
+        "perfectionism",
+        "anxiety-with-ambiguity",
+        "social-interaction"
+      ],
+      "description": "Functional need tags. Each maps to scaffolds in framework/scaffolds.yaml. Deliberately functional, never diagnostic — 'working-memory' not a disorder name."
+    }
+  }
+}

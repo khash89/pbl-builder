@@ -1,0 +1,53 @@
+name: Standards jurisdiction
+description: Request or contribute a standards set we don't bundle
+labels: [standards]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We bundle **Multi-State** only — CCSS Math, CCSS ELA, NGSS, C3, and WIDA (2,570 standards, 1.8 MB).
+
+        **First, try syncing it yourself** — about 30 US states are available on demand:
+
+        ```bash
+        pbl standards list                                # exact names
+        pbl standards sync --jurisdiction "Texas"
+        ```
+
+        If that works, you may not need this issue. If you'd like it bundled for everyone, or your framework isn't in the Knowledge Graph at all, carry on.
+
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Which jurisdiction or framework?
+      placeholder: "Texas (TEKS) / England National Curriculum / IB MYP"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tried
+    attributes:
+      label: Did `pbl standards sync` work?
+      options:
+        - "Yes — I'd like it bundled so others don't have to sync"
+        - "No — it isn't in the Knowledge Graph"
+        - "It errored (please describe below)"
+        - "I haven't tried yet"
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: Anything else
+      description: |
+        For a non-US framework: is it openly licensed, and where does the machine-readable version live? That's the blocker — we can only redistribute what the licence permits.
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: If you're contributing the data
+      options:
+        - label: Generated with `curate.mjs` — not hand-edited (the per-record `license` and `attribution` fields must survive)
+        - label: I'll update `framework/standards/index.yaml` and the tables in `PROVENANCE.md`
+        - label: Under ~5 MB, or gzipped

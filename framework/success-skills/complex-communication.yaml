@@ -1,0 +1,144 @@
+# Complex Communication
+#
+# Skill identified by PBLWorks as one of five success skills. The dimension
+# structure and ALL performance-level descriptors below are original writing by
+# PBL Builder contributors — not PBLWorks rubric language. For the official
+# rubric, see pblworks.org/resources. See NOTICE.md.
+
+version: 1
+id: complex-communication
+name: Complex Communication
+doc: ../../docs/08-success-skills.md#complex-communication
+rubric: ../../rubrics/success-skills/complex-communication.md
+
+definition: >
+  Understanding what others are actually saying, and making yourself
+  understood — in words, in writing, in how you carry yourself, and with the
+  tools you choose — adapted to who you're talking to.
+
+why_it_needs_a_project: >
+  Communication skill is only testable against a real audience with real
+  stakes. Presenting to a teacher who already knows the content and is
+  contractually obliged to listen tests almost nothing.
+
+levels: [beginning, emerging, developing, demonstrating]
+
+dimensions:
+  - id: synthesis-and-clarity
+    name: Synthesis & Clarity
+    question: Can they make something complicated understandable?
+    levels:
+      beginning: >
+        Conveys the main idea and some details. Organisation follows the order
+        they learned things rather than the order the listener needs.
+        Vocabulary is general where it should be precise.
+      emerging: >
+        Organised and followable. Uses key technical terms, sometimes without
+        being sure of them. Reports what sources said more than what it means.
+      developing: >
+        Organised for the listener. Synthesises multiple sources into a single
+        line of thought and uses technical vocabulary accurately.
+      demonstrating: >
+        Structures the message around what the audience needs to understand
+        first. Interprets and evaluates rather than reporting, uses precise
+        language, and draws conclusions the audience can follow all the way
+        through.
+    teach_by:
+      - '"Say it in one sentence" — repeatedly, until the sentence is good'
+      - Have them explain it to someone genuinely uninformed and watch where confusion lands
+      - Cut the first minute of any talk; it's almost always throat-clearing
+    look_for: >
+      Reordering their own material for the listener's benefit rather than
+      keeping it in the order they discovered it.
+
+  - id: audience-awareness
+    name: Audience Awareness
+    question: Do they adapt to who's actually in front of them?
+    levels:
+      beginning: >
+        Same delivery regardless of audience. Assumes shared background
+        knowledge that the audience doesn't have.
+      emerging: >
+        Recognises the audience differs and makes surface adjustments — mostly
+        formality, and mostly by removing jargon.
+      developing: >
+        Adjusts vocabulary, examples, and level of detail for the audience.
+        Anticipates the obvious questions.
+      demonstrating: >
+        Works out what this audience cares about and builds from there.
+        Anticipates objections and addresses them unprompted. Adapts in the
+        moment when the room isn't following.
+    teach_by:
+      - '"Who is in the room and what do they already believe?" before drafting'
+      - Have them prepare the same content for two different audiences
+      - Rehearse with someone who will genuinely push back
+    look_for: >
+      Reading the room mid-delivery and changing course. Advanced, and
+      unmistakable when it happens.
+
+  - id: non-verbal
+    name: Non-Verbal Communication
+    question: Does their body support what they're saying?
+    levels:
+      beginning: >
+        Posture and eye contact undercut the message. Reads from notes
+        throughout. Visible discomfort dominates.
+      emerging: >
+        Some eye contact. Volume and pace inconsistent. Notes are a crutch but
+        not the whole delivery.
+      developing: >
+        Generally audible, paced, and connected to the audience. Uses gesture
+        purposefully at least sometimes.
+      demonstrating: >
+        Delivery reinforces the content — pace slows at the hard part, gesture
+        illustrates structure, silence is used deliberately, eye contact is
+        distributed and genuine.
+    teach_by:
+      - Record a rehearsal and watch it together with the sound off
+      - Practise one thing at a time — volume this round, pausing the next
+      - Rehearsal ladder: alone, one adult, small group, real audience
+    look_for: >
+      Deliberate pausing. It's the last thing to develop and the clearest sign
+      of comfort.
+    note: >
+      Be careful here with a learner for whom eye contact or stillness is
+      genuinely difficult rather than merely unpractised. Assess whether the
+      delivery serves the message, not whether it matches a neurotypical
+      default. Adjust the descriptors and say so in the plan.
+
+  - id: tool-use
+    name: Strategic Use of Tools & Media
+    question: Do their slides, visuals, and tech help or hurt?
+    levels:
+      beginning: >
+        Media distracts from the message — text-dense slides read aloud,
+        decorative visuals, tech that fails.
+      emerging: >
+        Media is present and doesn't actively harm. Visuals mostly duplicate
+        what's being said.
+      developing: >
+        Visuals carry information the words can't, and are chosen for the
+        format.
+      demonstrating: >
+        Every element is doing work the speaker can't do alone, chosen
+        deliberately for this audience and this room — including the choice to
+        use nothing.
+    teach_by:
+      - Ban slides for the first rehearsal entirely
+      - '"What is this slide doing that you can''t say?" — delete it if there''s no answer'
+      - Test the tech in the actual room, in advance
+    look_for: >
+      Choosing not to use a tool because it wouldn't help. Genuinely
+      sophisticated.
+
+project_design_notes:
+  needs_from_project:
+    - A real audience that isn't obliged to be interested
+    - Enough rehearsal built into the calendar to actually improve
+    - Feedback separated into content first, delivery later
+    - Content complex enough that clarity is a real achievement
+  pairs_well_with_products: [idea-talk, policy-proposal, podcast, picture-book-or-zine, exhibit-or-installation, documentary-or-video]
+  weak_pairing_warning: >
+    Don't target this skill and then let the presentation be the last thing
+    planned. It needs three rehearsals in the calendar and separate content and
+    delivery feedback rounds. If those aren't scheduled, choose a different skill.

@@ -1,0 +1,61 @@
+name: Worked example
+description: Offer to contribute an example, or request one that doesn't exist
+labels: [example]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Examples are the highest-value contribution here. We ship grades 4, 8, and 11 in science, civics, and statistics — so **K–2, the arts, world languages, and CTE are wide open**, and so is anything with two learners sharing a project.
+
+        Full path for contributing one: [CONTRIBUTING.md](https://github.com/OWNER/pbl-builder/blob/main/CONTRIBUTING.md#contributing-an-exemplar)
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Are you offering one or asking for one?
+      options:
+        - I want to contribute one
+        - I'd like one that doesn't exist yet
+    validations:
+      required: true
+
+  - type: input
+    id: gradeband
+    attributes:
+      label: Grade band and subjects
+      placeholder: "K–2, science and ELA"
+    validations:
+      required: true
+
+  - type: input
+    id: setting
+    attributes:
+      label: Setting
+      placeholder: homeschool / microschool / tutoring / co-op / after-school
+    validations:
+      required: true
+
+  - type: textarea
+    id: demonstrates
+    attributes:
+      label: What design problem would it demonstrate?
+      description: |
+        This is the important field. An example that doesn't teach anything specific is just more files to read. Ours are things like "a learner who has decided she's bad at reading" or "a high achiever who has never chosen anything."
+      placeholder: "Early-childhood PBL where the learner can't yet read or write independently — how the elements survive that."
+    validations:
+      required: true
+
+  - type: textarea
+    id: sketch
+    attributes:
+      label: Rough sketch, if you have one
+      description: Driving question, product, audience, target success skill.
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: If you're contributing
+      options:
+        - label: The learner will be **invented**, not a real child even de-identified
+        - label: I'll use real standards codes (`pbl standards search` finds them)
+        - label: It'll pass `pbl profile check`, `pbl validate`, and `pbl review` with zero failures

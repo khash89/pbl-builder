@@ -1,0 +1,145 @@
+# Self-Directed Learning
+#
+# Skill identified by PBLWorks as one of five success skills. The dimension
+# structure and ALL performance-level descriptors below are original writing by
+# PBL Builder contributors — not PBLWorks rubric language. For the official
+# rubric, see pblworks.org/resources. See NOTICE.md.
+
+version: 1
+id: self-directed-learning
+name: Self-Directed Learning
+doc: ../../docs/08-success-skills.md#self-directed-learning
+rubric: ../../rubrics/success-skills/self-directed-learning.md
+
+definition: >
+  Managing your own learning: setting goals, getting started, keeping going
+  when it's hard, noticing when you're off track, and taking responsibility for
+  the outcome.
+
+why_it_needs_a_project: >
+  Self-direction can't develop inside a task where every step is specified.
+  It requires enough open space to make real decisions — and enough duration
+  that a bad decision in week two has to be dealt with in week three.
+
+solo_note: >
+  This is the most commonly chosen skill in one-learner settings, and the
+  hardest to grow there, because the adult is always available. The support
+  plan matters more than the rubric: if you answer every question immediately,
+  you cannot assess self-direction, because you've removed the conditions for
+  it. Deliberate unavailability is an instructional choice.
+
+levels: [beginning, emerging, developing, demonstrating]
+
+dimensions:
+  - id: self-regulation
+    name: Goal-Setting & Self-Regulation
+    question: Can they set a target and steer themselves toward it?
+    levels:
+      beginning: >
+        Works to goals set by an adult. Needs a prompt to begin and another to
+        resume after an interruption. Doesn't notice drift from the plan.
+      emerging: >
+        Sets short-term goals when asked, and meets them with reminders.
+        Notices being behind, usually after the fact.
+      developing: >
+        Sets their own goals for a work session and mostly hits them. Notices
+        drift during the work and corrects. Asks for help at roughly the right
+        time.
+      demonstrating: >
+        Sets goals that are ambitious but achievable, tracks their own progress
+        against them, and adjusts the plan when reality changes — then can
+        explain what they changed and why.
+    teach_by:
+      - Learner writes the session goal before starting and reviews it after
+      - Estimate-then-check on task duration (see scaffolds.yaml)
+      - Weekly: "what did you plan, what happened, what will you change?"
+    look_for: >
+      Self-correction without prompting. Not "did they finish" — did they notice
+      and adjust.
+
+  - id: persistence
+    name: Persistence & Frustration Tolerance
+    question: What happens when it gets hard?
+    levels:
+      beginning: >
+        Stops when stuck. Frustration ends the session. Difficulty is read as
+        evidence they can't do it.
+      emerging: >
+        Keeps going with encouragement. Will try again after a break. Still
+        interprets difficulty as a signal about their ability.
+      developing: >
+        Uses a strategy when stuck rather than stopping, and tries more than one
+        thing before asking. Recovers from setbacks within the session.
+      demonstrating: >
+        Treats difficulty as expected and informative. Has a repertoire of
+        strategies and chooses between them. Can name what they learned from
+        something that failed.
+    teach_by:
+      - A posted stuck ladder, used out loud until it's internal
+      - Tell them about your own failures on the project, specifically
+      - Praise the strategy, never the ease — "you tried three things" not "that was quick"
+    look_for: >
+      Language shift from "I can't" to "I haven't yet found." Real, and
+      observable.
+
+  - id: autonomy
+    name: Autonomy & Initiative
+    question: Do they act without being told to?
+    levels:
+      beginning: >
+        Waits for direction. Asks what to do next even when the plan says.
+      emerging: >
+        Follows an agreed plan independently. Asks before deviating, even
+        trivially.
+      developing: >
+        Recognises the choices available and makes them. Starts work without
+        prompting. Brings problems with a proposed solution attached.
+      demonstrating: >
+        Takes charge of their own learning — seeks resources and people you
+        didn't suggest, proposes changes to the plan, and pursues questions past
+        the requirement because they want the answer.
+    teach_by:
+      - Answer questions with questions for a defined period, and tell them that's what you're doing
+      - Require a proposed solution to accompany every problem raised
+      - Be deliberately unavailable for a scheduled block
+    look_for: >
+      Resources or contacts in the final product that you never mentioned.
+      That's the clearest evidence there is.
+
+  - id: responsibility
+    name: Personal Responsibility
+    question: Do they own the outcome?
+    levels:
+      beginning: >
+        Attributes setbacks to circumstances, other people, or the task being
+        unfair.
+      emerging: >
+        Acknowledges their part in a setback when it's pointed out.
+        Follow-through is inconsistent.
+      developing: >
+        Names their own contribution to both problems and successes. Meets
+        commitments; tells you in advance when they won't.
+      demonstrating: >
+        Takes responsibility without being asked, including for work that
+        wasn't good enough. Distinguishes what was in their control from what
+        wasn't, accurately and without either excuse-making or self-blame.
+    teach_by:
+      - Model it — say when you got something wrong in the project
+      - '"What was in your control here?" as a routine question, asked neutrally'
+      - Let a missed deadline have its natural consequence
+    look_for: >
+      Accuracy, not contrition. A learner who takes the blame for everything is
+      failing this dimension in the other direction.
+
+project_design_notes:
+  needs_from_project:
+    - Genuine open space where the learner decides what happens next
+    - Long enough that early decisions have visible later consequences
+    - An adult who is deliberately not always available
+    - Learner-owned management tools, not adult-owned ones
+  pairs_well_with_products: [event, business-or-venture-plan, documentary-or-video, interactive-map-or-tour, physical-model]
+  weak_pairing_warning: >
+    A tightly scaffolded project with a fixed daily sequence can't develop
+    self-direction — there's nothing to direct. If the learner also has low
+    choice appetite, target one dimension only (usually self-regulation) and
+    widen the space deliberately across the project.

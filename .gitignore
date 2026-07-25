@@ -1,0 +1,50 @@
+# ─────────────────────────────────────────────────────────────────
+# Learner data — NEVER commit this.
+#
+# Learner profiles describe a specific child: reading level, executive
+# function, accommodations, what they struggle with. That does not belong
+# in a git repository, public or private.
+#
+# If you want to share a project design, share the plan, not the profile,
+# and strip identifying details first. See docs/15-learner-profiles.md.
+# ─────────────────────────────────────────────────────────────────
+learners/**
+!learners/README.md
+!learners/.gitkeep
+
+# Standards cache — regenerate with `pbl standards sync`
+.cache/
+*.jsonl.tmp
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+.npm/
+*.tgz
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# Scratch
+scratch/
+tmp/
+*.local.md

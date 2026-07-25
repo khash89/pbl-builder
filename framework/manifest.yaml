@@ -1,0 +1,222 @@
+# PBL Builder — framework manifest
+#
+# START HERE if you are an agent or a program. This file indexes everything
+# else so you don't have to crawl the repo.
+#
+# Query it from the CLI:
+#   pbl framework                 # this manifest as JSON
+#   pbl framework design-elements # a specific file as JSON
+
+version: 1
+framework_version: "0.1.0"
+schema_version: 1
+updated: "2026-07-24"
+
+about: >
+  PBL Builder designs Gold Standard Project Based Learning projects for one
+  learner at a time. The learner profile is the primary input; the project is
+  designed outward from it.
+
+# ── The two contracts ────────────────────────────────────────────────
+schemas:
+  learner_profile:
+    id: learner-profile
+    path: ../schema/learner-profile.schema.json
+    template: ../templates/learner-profile.md
+    doc: ../docs/15-learner-profiles.md
+    role: >
+      PRIMARY INPUT. Describes one learner. Everything downstream derives from
+      it. Validate with `pbl profile check`.
+  project_plan:
+    id: project-plan
+    path: ../schema/project-plan.schema.json
+    template: ../templates/project-plan.md
+    data_template: ../templates/project-plan.yaml
+    doc: ../docs/06-design-process.md
+    role: >
+      OUTPUT. One project designed for one learner. Must reference the profile
+      it came from via the `learner_profile` field. Validate with
+      `pbl validate`, assess with `pbl review`.
+  field_reference: ../schema/README.md
+
+# ── Framework data files ─────────────────────────────────────────────
+data:
+  - id: design-elements
+    path: design-elements.yaml
+    doc: ../docs/03-design-elements.md
+    contains: The 8 Essential Project Design Elements, with check questions and failure modes.
+    read_when: Evaluating whether a project design holds up.
+
+  - id: teaching-practices
+    path: teaching-practices.yaml
+    doc: ../docs/04-teaching-practices.md
+    contains: The 7 Project Based Teaching Practices, each with a one-learner translation.
+    read_when: Advising on how to run a project, not how to design one.
+
+  - id: project-path
+    path: project-path.yaml
+    doc: ../docs/05-project-path.md
+    contains: The 4 phases, what the learner asks in each, adult moves, solo notes, and cross-phase invariants.
+    read_when: Mapping milestones. Read the invariants before writing project_path.
+
+  - id: strategies
+    path: strategies.yaml
+    doc_dir: ../docs/10-strategies/
+    contains: 18 classroom strategies indexed by phase, grade band, and solo viability.
+    read_when: Choosing learning experiences. Use by_phase for lookup.
+
+  - id: product-types
+    path: product-types.yaml
+    doc: ../docs/03-design-elements.md#8-public-product
+    contains: 12 product types with `modes` tags, effort, audience pressure, and solo notes.
+    read_when: >
+      Building a product menu. Filter by the profile's preferences.product_modes
+      — this is what `pbl review` check 9 verifies.
+
+  - id: scaffolds
+    path: scaffolds.yaml
+    doc: ../docs/11-solo-and-small-group-pbl.md
+    contains: 20 scaffolds keyed to the learner-profile need_tag enum, each with a fade plan.
+    read_when: >
+      Selecting supports. Every populated need in the profile needs at least one
+      scaffold; every scaffold needs a fade_plan.
+
+  - id: success-skills
+    dir: success-skills/
+    doc: ../docs/08-success-skills.md
+    rubric_dir: ../rubrics/success-skills/
+    contains: 5 skills, each with dimensions, 4 performance levels, and how to teach them.
+    files:
+      collaboration: success-skills/collaboration.yaml
+      critical-thinking: success-skills/critical-thinking.yaml
+      creativity: success-skills/creativity.yaml
+      complex-communication: success-skills/complex-communication.yaml
+      self-directed-learning: success-skills/self-directed-learning.yaml
+    read_when: >
+      Choosing the ONE target skill and its dimensions. Read
+      collaboration.yaml's solo_warning before ever targeting collaboration for
+      a single learner.
+
+  - id: standards
+    dir: standards/
+    doc: ../docs/16-standards.md
+    provenance: standards/PROVENANCE.md
+    index: standards/index.yaml
+    contains: Academic standards as JSONL, curated from the Learning Commons Knowledge Graph (CC BY 4.0).
+    read_when: >
+      Resolving or searching standards codes. Prefer `pbl standards search` over
+      reading the JSONL directly. NEVER invent a code.
+
+# ── Enumerations other systems need ──────────────────────────────────
+enums:
+  grade: [pre-k, k, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+  grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+  phases: [launch, build_knowledge, develop_and_critique, present]
+  success_skills: [collaboration, critical-thinking, creativity, complex-communication, self-directed-learning]
+  skill_levels: [beginning, emerging, developing, demonstrating]
+  product_modes: [build-physical, write, draw-or-design, film-or-photograph, record-audio, perform-or-present, code-or-data, organize-an-event, teach-others, persuade-or-argue, map-or-diagram]
+  standards_status: [not-started, developing, secure]
+  choice_appetite: [low, medium, high]
+  audience_comfort: [low, medium, high]
+  pbl_experience: [none, some, experienced]
+  settings: [homeschool, microschool, tutoring, classroom-pullout, after-school, other]
+  need_tags: [task-initiation, planning-and-sequencing, time-management, working-memory, task-switching, sustained-attention, organization-of-materials, reading-comprehension, reading-fluency, written-expression, academic-vocabulary, english-language-development, oral-expression, listening-comprehension, math-fluency, frustration-tolerance, perfectionism, anxiety-with-ambiguity, social-interaction]
+
+# ── The design sequence ──────────────────────────────────────────────
+# Follow this order. Steps 1-2 gate everything else.
+process:
+  - step: 1
+    do: Build or read the learner profile.
+    gate: "`pbl profile check` passes."
+    doc: ../docs/15-learner-profiles.md
+  - step: 2
+    do: Draft the three foundations — learning goals, driving question, public product and audience.
+    gate: The adult confirms all three before you go further.
+    doc: ../docs/06-design-process.md
+  - step: 3
+    do: Establish authenticity, naming a specific interest from the profile.
+    doc: ../docs/03-design-elements.md#4-authenticity
+  - step: 4
+    do: Build the product menu from product-types.yaml filtered by the learner's modes; the learner chooses.
+  - step: 5
+    do: Map all four phases into milestones with need-to-know questions and learning experiences.
+    gate: The project-path.yaml invariants all hold.
+  - step: 6
+    do: Select scaffolds for every populated need, each with a fade plan.
+  - step: 7
+    do: Plan assessment — formative in the two middle phases, summative, and success-skill checks.
+  - step: 8
+    do: Write the support plan, including the stuck protocol and named critique partners.
+  - step: 9
+    do: Validate and review.
+    gate: "`pbl validate` and `pbl review` pass with zero failures; warnings reported to the adult."
+
+# ── Review checks, by id ─────────────────────────────────────────────
+# `pbl review` runs these. Each maps to a design element.
+review_checks:
+  - id: substantive-content
+    element: learning-goals
+    fails_when: A required field is empty or still holds template placeholder text.
+  - id: single-success-skill
+    element: learning-goals
+    fails_when: More than one success skill, or no dimensions named.
+  - id: driving-question-shape
+    element: challenging-problem
+    fails_when: Not open-ended in form.
+    warns_when: Answerable yes/no, or shaped like a topic rather than a challenge.
+  - id: audience-beyond-household
+    element: public-product
+    fails_when: No audience named.
+    warns_when: The audience appears to be only the household or the tutor, with no comfort ramp.
+  - id: all-phases-populated
+    element: sustained-inquiry
+    fails_when: Any of the four phases has no milestones.
+  - id: milestones-have-ntk
+    element: sustained-inquiry
+    fails_when: A milestone lacks a need-to-know question or a learning experience.
+  - id: critique-before-present
+    element: critique-and-revision
+    fails_when: No critique cycle occurs before the present phase.
+  - id: reflection-spread
+    element: reflection
+    fails_when: Fewer than 2 reflection points, or all in one phase.
+  - id: formative-in-middle-phases
+    element: learning-goals
+    fails_when: No formative assessment in build_knowledge or in develop_and_critique.
+  - id: profile-fidelity
+    element: authenticity
+    fails_when: >
+      personal_connection names no profile interest; the product type's modes
+      don't overlap the learner's product_modes; or a populated need has no
+      scaffold.
+  - id: scaffolds-fade
+    element: learning-goals
+    fails_when: A scaffold has no fade plan.
+  - id: choice-calibration
+    element: voice-and-choice
+    fails_when: voice_and_choice.calibrated_for disagrees with the profile's choice_appetite.
+  - id: standards-resolve
+    element: learning-goals
+    fails_when: A standards code doesn't resolve against the local standards set and isn't 'TBD'.
+    warns_when: Every standard is already 'secure' — nothing new is being learned.
+  - id: support-plan-complete
+    element: critique-and-revision
+    fails_when: stuck_protocol is missing or trivially short.
+
+# ── Attribution ──────────────────────────────────────────────────────
+attribution:
+  framework:
+    source: PBLWorks / Buck Institute for Education
+    url: https://www.pblworks.org/
+    terms: >
+      Framework cited, never copied. All text in this repository is original.
+      Not affiliated with or endorsed by PBLWorks.
+  standards:
+    source: Learning Commons Knowledge Graph
+    url: https://github.com/learning-commons-org/knowledge-graph
+    license: CC BY 4.0
+    terms: Redistributed with per-record attribution intact. See standards/PROVENANCE.md.
+  thinking_routines:
+    source: Project Zero, Harvard Graduate School of Education
+    url: https://pz.harvard.edu/thinking-routines
+  notice: ../NOTICE.md

@@ -1,0 +1,399 @@
+# Scaffold library
+#
+# Each scaffold is keyed to the `need_tag` values in the learner profile
+# schema. `pbl review` check 9 requires every populated need in the profile to
+# be addressed by at least one scaffold in the plan; check 10 requires every
+# scaffold in the plan to carry a fade plan.
+#
+# The `fade` field here is a starting point, not the answer — copy it into the
+# plan and make it specific to the learner and the calendar.
+#
+# THE RULE: a scaffold is a temporary support that makes an otherwise
+# out-of-reach task reachable. If it never comes off, it isn't a scaffold —
+# it's a permanent accommodation, and it belongs in the profile's
+# needs.accommodations instead. Both are legitimate. Confusing them is not:
+# unfaded scaffolds are how a learner arrives at fifteen unable to start
+# anything without a checklist someone else made.
+#
+# Original writing. Informed by general instructional-scaffolding practice and
+# the PBLWorks emphasis on responsive, fading support. See NOTICE.md.
+
+version: 1
+doc: ../docs/03-design-elements.md
+related: ../docs/11-solo-and-small-group-pbl.md
+
+scaffolds:
+  # ── Executive function ──────────────────────────────────────────────
+  - id: first-step-card
+    name: First-Step Card
+    addresses: [task-initiation]
+    phases: [launch, build_knowledge, develop_and_critique]
+    what: >
+      An index card on the desk naming the single first physical action of the
+      session — "open the notebook to page 4 and re-read your last entry."
+      Not the goal. The first action.
+    why: >
+      Task initiation usually fails at the transition, not the task. Removing
+      the decision about where to start removes the stall.
+    fade: >
+      Learner writes the card themselves at the end of the previous session,
+      then keeps it in their own log, then stops needing it written down.
+    effort: low
+
+  - id: work-plan-cocreated
+    name: Co-Created Work Plan
+    addresses: [planning-and-sequencing, time-management]
+    phases: [build_knowledge, develop_and_critique]
+    what: >
+      At the start of each phase, the learner and adult break the phase into
+      concrete tasks with dates. The learner holds the pen; the adult asks
+      "what has to happen before that can?"
+    why: >
+      Sequencing is a taught skill, not a trait. Doing it aloud repeatedly is
+      how it transfers.
+    fade: >
+      Adult asks fewer questions each round. By the last phase the learner
+      drafts it alone and the adult only reviews.
+    effort: low
+
+  - id: time-estimate-audit
+    name: Estimate-Then-Check
+    addresses: [time-management]
+    phases: [build_knowledge, develop_and_critique]
+    what: >
+      Before a task, the learner writes how long they think it will take.
+      Afterwards they write how long it actually took. No consequence for being
+      wrong — the data is the point.
+    why: >
+      Time blindness improves with feedback, and almost never improves without
+      it. Two weeks of this changes estimates measurably.
+    fade: >
+      Reduce from every task to once a week, then to only new kinds of task.
+    effort: low
+
+  - id: single-page-project-wall
+    name: One-Page Project Wall
+    addresses: [working-memory, organization-of-materials, planning-and-sequencing]
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    what: >
+      One visible surface holding the driving question, the current
+      need-to-knows, the next deadline, and the criteria. Physically visible
+      where the work happens — not a document that has to be opened.
+    why: >
+      Offloads what working memory shouldn't have to hold, and makes the
+      project continuous across days.
+    fade: >
+      Learner maintains it instead of the adult, then decides what belongs on
+      it, then chooses their own system.
+    effort: low
+    see_also: ../docs/10-strategies/project-wall.md
+
+  - id: task-checklist-owned
+    name: Learner-Owned Checklist
+    addresses: [working-memory, planning-and-sequencing, sustained-attention]
+    phases: [build_knowledge, develop_and_critique, present]
+    what: >
+      A checklist for multi-step tasks — but written by the learner, from the
+      criteria, before starting. Adult reviews it rather than supplying it.
+    why: >
+      A checklist you were given manages you. A checklist you wrote teaches you
+      to decompose. Same artifact, opposite effect.
+    fade: >
+      From co-written, to learner-written and reviewed, to learner-written only.
+    effort: low
+
+  - id: body-double
+    name: Parallel Work Session
+    addresses: [task-initiation, sustained-attention]
+    phases: [build_knowledge, develop_and_critique]
+    what: >
+      The adult works on their own unrelated task in the same room, silently,
+      for a set block. No supervision, no checking in — just presence.
+    why: >
+      Presence without monitoring gets many learners started when nothing else
+      does, and it doesn't create dependence on being watched.
+    fade: >
+      Shorten the shared block; move to the adult being in the next room; then
+      to a timer alone.
+    effort: low
+
+  - id: transition-warning
+    name: Timed Transitions
+    addresses: [task-switching, frustration-tolerance]
+    phases: [build_knowledge, develop_and_critique, present]
+    what: >
+      Audible warnings at ten and two minutes before a switch, agreed in
+      advance, with the learner choosing the intervals.
+    why: >
+      Most resistance to switching is resistance to being interrupted without
+      warning. Predictability removes most of it.
+    fade: >
+      Learner sets their own timers, then estimates their own stopping points.
+    effort: low
+
+  # ── Reading ─────────────────────────────────────────────────────────
+  - id: tiered-source-set
+    name: Tiered Source Set
+    addresses: [reading-comprehension, reading-fluency, academic-vocabulary]
+    phases: [build_knowledge]
+    what: >
+      For each key question, three sources at different reading levels covering
+      the same content. The learner chooses where to start and can climb.
+    why: >
+      Keeps cognitive demand high while making the text accessible. Choosing
+      their own entry point preserves agency, which a simplified-text-only
+      approach destroys.
+    fade: >
+      Reduce the tiers over the project; by the final phase offer the
+      grade-level source first with the easier one available on request.
+    effort: medium
+    watch_for: >
+      Only ever offering the easiest tier. That's not a scaffold, that's a
+      ceiling.
+
+  - id: text-to-speech
+    name: Text-to-Speech
+    addresses: [reading-fluency, reading-comprehension]
+    phases: [build_knowledge, develop_and_critique]
+    what: >
+      Read-aloud technology for anything over a page, with the learner
+      following the text visually.
+    why: >
+      Decoding and comprehension are separable. Removing the decoding load lets
+      a learner engage with grade-level ideas now.
+    fade: >
+      Often this shouldn't fade — for many learners it's a permanent
+      accommodation and belongs in the profile instead. If it IS a scaffold,
+      fade by text length: over five pages, then over ten, then only new
+      technical material.
+    effort: low
+
+  - id: purpose-before-reading
+    name: Purpose-Set Before Reading
+    addresses: [reading-comprehension, sustained-attention]
+    phases: [build_knowledge]
+    what: >
+      Before opening a source, the learner writes the specific question they're
+      reading to answer, and stops when they've answered it.
+    why: >
+      Turns reading from an endurance task into a search task. Also builds the
+      habit of reading purposefully rather than start-to-finish.
+    fade: >
+      Move from written to stated aloud to internal.
+    effort: low
+
+  # ── Vocabulary and language ─────────────────────────────────────────
+  - id: concept-before-word
+    name: Concept Before Vocabulary
+    addresses: [academic-vocabulary, english-language-development]
+    phases: [launch, build_knowledge]
+    what: >
+      Do something that demonstrates the concept, then name it. Watch water
+      behave differently on packed and loose soil, then learn "permeability."
+    why: >
+      A word attached to an experience is retained. A word attached to a
+      definition is memorized and lost.
+    fade: >
+      Shift toward the learner predicting what a new term means from context
+      before you confirm it.
+    effort: low
+    see_also: ../docs/10-strategies/academic-vocabulary.md
+
+  - id: word-wall-living
+    name: Living Word Wall
+    addresses: [academic-vocabulary, english-language-development]
+    phases: [build_knowledge, develop_and_critique, present]
+    what: >
+      Terms added as they're encountered, in the learner's own words plus a
+      sketch. Never pre-populated by the adult.
+    why: >
+      Definitions written by the learner are usable by the learner. It also
+      makes the growth of technical language visible, which is motivating.
+    fade: >
+      Move to a personal glossary in their notebook, then to the learner
+      choosing what's worth recording.
+    effort: low
+
+  - id: sentence-frames
+    name: Sentence Frames for Argument
+    addresses: [written-expression, oral-expression, english-language-development]
+    phases: [develop_and_critique, present]
+    what: >
+      Frames for the specific moves the product needs: "The evidence suggests
+      ___, although ___ complicates this because ___."
+    why: >
+      Separates having the thought from having the form. Many learners have the
+      argument and lack the structure to express it.
+    fade: >
+      Remove frames one at a time as each move becomes habitual. Aim to be
+      frame-free on at least one move by the final draft.
+    effort: low
+
+  - id: note-catcher
+    name: Structured Note-Catcher for Talk
+    addresses: [listening-comprehension, working-memory, academic-vocabulary]
+    phases: [launch, build_knowledge]
+    what: >
+      Before an expert call, a read-aloud, or a video, the learner gets a page
+      with two or three specific questions and space under each — plus one box
+      for "something I didn't understand." They write in it while listening, not
+      after.
+    why: >
+      Listening while deciding what matters is two jobs. Pre-naming what to
+      listen for reduces it to one. The didn't-understand box is the important
+      part: it makes not following something a recordable event rather than a
+      private failure, which is what gets it asked about.
+    fade: >
+      From adult-written questions, to the learner writing the questions before
+      the event, to a blank page they organise themselves. Fade when they
+      spontaneously write down a question during a talk.
+    effort: low
+    note: >
+      Pair with an expert interview or a read-aloud. Reviewing the
+      didn't-understand box afterwards is where most of the value lands.
+
+  - id: talk-before-write
+    name: Talk It Before Writing It
+    addresses: [written-expression, oral-expression]
+    phases: [build_knowledge, develop_and_critique]
+    what: >
+      The learner explains their point aloud — recorded on a phone if useful —
+      then transcribes or works from the recording.
+    why: >
+      For learners whose spoken reasoning far outruns their writing, this
+      removes the bottleneck without lowering the thinking.
+    fade: >
+      From recording everything, to recording only the hard sections, to
+      outlining aloud and writing directly.
+    effort: low
+
+  # ── Emotional and dispositional ─────────────────────────────────────
+  - id: exemplar-analysis
+    name: Models of Quality Work
+    addresses: [anxiety-with-ambiguity, perfectionism, written-expression]
+    phases: [launch, develop_and_critique]
+    what: >
+      Two to four real examples of the product type, analysed together to build
+      the criteria. Include a mediocre one — comparison teaches more than
+      excellence alone.
+    why: >
+      "Make something good" is unbearable without knowing what good looks like.
+      This is the single highest-value scaffold for a learner anxious about open
+      tasks.
+    fade: >
+      Move from analysing together, to the learner analysing and reporting, to
+      them seeking their own exemplars.
+    effort: medium
+    see_also: ../docs/10-strategies/models-of-quality-work.md
+
+  - id: ugly-first-draft
+    name: Deliberately Rough First Draft
+    addresses: [perfectionism, task-initiation]
+    phases: [develop_and_critique]
+    what: >
+      An explicitly-required bad version, time-boxed and never assessed. Stated
+      as a rule: this draft is supposed to be poor.
+    why: >
+      For a perfectionist, permission to be bad is what makes starting
+      possible. Making it a requirement removes the shame.
+    fade: >
+      Shorten the time box; eventually the learner starts drafting without the
+      ritual.
+    effort: low
+
+  - id: stuck-ladder
+    name: Stuck Ladder
+    addresses: [frustration-tolerance, task-initiation, anxiety-with-ambiguity]
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    what: >
+      A posted, agreed sequence for being stuck: (1) re-read the criteria,
+      (2) check the project wall, (3) write the question down precisely,
+      (4) try one thing that might be wrong, (5) ask. In that order.
+    why: >
+      Converts "I'm stuck" from an emotional event into a procedure. Step 3
+      alone resolves a surprising share of stuck moments.
+    fade: >
+      Adult stops naming the ladder and starts asking "which step are you on?"
+      Eventually the learner reports it unprompted.
+    effort: low
+    note: >
+      This scaffold should also appear in the plan's
+      support_plan.stuck_protocol. It's the one place they overlap.
+
+  - id: choice-menu-narrowed
+    name: Narrowed Choice Menu
+    addresses: [anxiety-with-ambiguity]
+    phases: [launch, build_knowledge, develop_and_critique]
+    what: >
+      Genuine choice, presented as two or three concrete options rather than an
+      open field, with "or propose your own" always available.
+    why: >
+      Open choice paralyses some learners. A short menu preserves agency while
+      removing the paralysis — and the "propose your own" line is how the menu
+      eventually becomes unnecessary.
+    fade: >
+      Widen the menu each phase — two options, then four, then open with a
+      deadline for deciding.
+    effort: low
+    see_also: ../docs/10-strategies/student-choice.md
+
+  - id: rehearsal-ladder
+    name: Rehearsal Ladder
+    addresses: [social-interaction, anxiety-with-ambiguity, oral-expression]
+    phases: [present]
+    what: >
+      Three rehearsals with escalating audiences: alone or to a pet, then one
+      trusted adult, then a small friendly group — before the real audience.
+    why: >
+      Exposure in graduated steps is what makes a high-stakes presentation
+      survivable. It's also why the public product never has to be dropped.
+    fade: >
+      Reduce the number of rungs on the next project. Most learners need three
+      the first time and one by the third project.
+    effort: low
+    note: >
+      Mirror this in the plan's public_audience.comfort_ramp.
+
+  # ── Numeracy ────────────────────────────────────────────────────────
+  - id: calculation-tool-allowed
+    name: Calculation Tool for Non-Target Math
+    addresses: [math-fluency]
+    phases: [build_knowledge, develop_and_critique]
+    what: >
+      Calculator or spreadsheet permitted for arithmetic that isn't a target
+      standard, so fluency gaps don't block the reasoning being assessed.
+    why: >
+      If the standard is about interpreting data, arithmetic errors are noise.
+      Remove the noise and assess the thing you meant to assess.
+    fade: >
+      Only fade if fluency in that operation is itself a goal. Otherwise leave
+      it — professionals use spreadsheets.
+    effort: low
+
+  - id: worked-example-pair
+    name: Worked Example, Then Faded
+    addresses: [math-fluency, planning-and-sequencing]
+    phases: [build_knowledge]
+    what: >
+      A fully worked example, then one with the last step missing, then the
+      middle steps, then nothing.
+    why: >
+      Backward fading is one of the better-evidenced sequences in instructional
+      research, and it's easy to do with one learner.
+    fade: >
+      The fading IS the scaffold. Just complete the sequence rather than
+      stopping at the worked example.
+    effort: low
+
+# Guidance for choosing
+selection_rules:
+  - Address every populated need tag, but do not stack more than three or four
+    scaffolds at once — the learner has to be able to hold the system in mind.
+  - Prefer scaffolds the learner can eventually run themselves. A support that
+    requires the adult forever creates dependence.
+  - Write a real fade plan with a trigger, not a date. "Once she drafts two
+    sections without a frame" beats "week 4."
+  - If a support genuinely should never come off, move it to the profile's
+    needs.accommodations and stop calling it a scaffold.
+  - Front-loading every scaffold before it's needed removes the productive
+    struggle. Introduce each at the point of need.

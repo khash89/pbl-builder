@@ -1,0 +1,213 @@
+# Classroom strategy index
+#
+# Machine-readable index of the strategies documented in ../docs/10-strategies/.
+# Agents should read this file to find the right strategy, then open the doc.
+#
+# `solo_viability` is the field that matters most in this repo:
+#   direct     — works as-is with one learner
+#   adapted    — works, but the doc's "With One Learner" section is essential
+#   needs-others — requires at least one other person; see the doc for who
+#
+# Strategies informed by the PBLWorks strategy-guide corpus; all descriptions
+# and solo adaptations are original writing. See NOTICE.md.
+
+version: 1
+doc_dir: ../docs/10-strategies/
+
+strategies:
+  - id: entry-event
+    name: Entry Event
+    doc: entry-event.md
+    phases: [launch]
+    purpose: Create a genuine need to know before any content is taught.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: adapted
+    effort: medium
+    addresses_elements: [challenging-problem, sustained-inquiry, authenticity]
+
+  - id: need-to-know
+    name: Need-to-Know Questions
+    doc: need-to-know.md
+    phases: [launch, build_knowledge]
+    purpose: Surface and track the learner's own questions; use them to sequence instruction.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: adapted
+    effort: low
+    addresses_elements: [sustained-inquiry, voice-and-choice]
+
+  - id: project-wall
+    name: Project Wall
+    doc: project-wall.md
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    purpose: Make the project continuously visible so the learner can orient without asking.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [sustained-inquiry, voice-and-choice]
+    related_scaffolds: [single-page-project-wall]
+
+  - id: learning-log
+    name: Learning Log
+    doc: learning-log.md
+    phases: [build_knowledge]
+    purpose: Track what the learner is finding, from which source, and what it opened up.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [sustained-inquiry, reflection]
+
+  - id: workshop-model
+    name: Workshop Model
+    doc: workshop-model.md
+    phases: [build_knowledge, develop_and_critique]
+    purpose: A repeatable session structure — short lesson, work time, share.
+    grade_bands: [3-5, 6-8, 9-12]
+    solo_viability: adapted
+    effort: low
+    addresses_elements: [sustained-inquiry]
+
+  - id: critique-protocols
+    name: Critique Protocols
+    doc: critique-protocols.md
+    phases: [develop_and_critique]
+    purpose: Structured feedback the learner can act on, anchored to criteria.
+    grade_bands: [3-5, 6-8, 9-12]
+    solo_viability: needs-others
+    effort: medium
+    addresses_elements: [critique-and-revision]
+
+  - id: revision
+    name: Revision Strategies
+    doc: revision.md
+    phases: [develop_and_critique]
+    purpose: Turn received feedback into an actually improved product.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [critique-and-revision]
+
+  - id: reflection
+    name: Reflection
+    doc: reflection.md
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    purpose: Structured thinking about content, process, and purpose during the work.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: adapted
+    effort: low
+    addresses_elements: [reflection]
+
+  - id: models-of-quality-work
+    name: Models of Quality Work
+    doc: models-of-quality-work.md
+    phases: [launch, develop_and_critique]
+    purpose: Build criteria from real exemplars so "good" is concrete before work starts.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: medium
+    addresses_elements: [learning-goals, critique-and-revision]
+    related_scaffolds: [exemplar-analysis]
+
+  - id: rubrics
+    name: Using Rubrics
+    doc: rubrics.md
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    purpose: Share criteria before the work, use them throughout, not just at the end.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [learning-goals, critique-and-revision]
+
+  - id: student-choice
+    name: Facilitating Choice
+    doc: student-choice.md
+    phases: [launch, build_knowledge, develop_and_critique]
+    purpose: Offer real decisions, calibrated so they empower rather than paralyse.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [voice-and-choice]
+    related_scaffolds: [choice-menu-narrowed]
+
+  - id: thinking-routines
+    name: Thinking Routines
+    doc: thinking-routines.md
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    purpose: Short repeatable protocols that make thinking visible.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: adapted
+    effort: low
+    addresses_elements: [sustained-inquiry, reflection]
+    attribution: Project Zero, Harvard Graduate School of Education
+
+  - id: outside-experts
+    name: Working with Outside Experts
+    doc: outside-experts.md
+    phases: [launch, build_knowledge, develop_and_critique, present]
+    purpose: Bring in someone who does this for real — for content, critique, or audience.
+    grade_bands: [3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: medium
+    addresses_elements: [authenticity, critique-and-revision, public-product]
+
+  - id: interviews
+    name: Preparing & Conducting Interviews
+    doc: interviews.md
+    phases: [build_knowledge]
+    purpose: Teach interviewing as a real research method.
+    grade_bands: [3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: medium
+    addresses_elements: [sustained-inquiry, authenticity]
+
+  - id: academic-vocabulary
+    name: Academic Vocabulary
+    doc: academic-vocabulary.md
+    phases: [launch, build_knowledge]
+    purpose: Make the language of the domain usable, not just recognisable.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [learning-goals]
+    related_scaffolds: [concept-before-word, word-wall-living]
+
+  - id: presentations
+    name: Preparing for Presentations
+    doc: presentations.md
+    phases: [develop_and_critique, present]
+    purpose: Build presentation skill deliberately, with rehearsal and a comfort ramp.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: adapted
+    effort: medium
+    addresses_elements: [public-product]
+    related_scaffolds: [rehearsal-ladder]
+
+  - id: audience-feedback
+    name: Audience Feedback
+    doc: audience-feedback.md
+    phases: [present]
+    purpose: Give the audience a real role and get usable responses back.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [public-product, critique-and-revision]
+
+  - id: post-project-reflection
+    name: Post-Project Reflection
+    doc: post-project-reflection.md
+    phases: [present]
+    purpose: Learn from the project — for the learner, and for whoever designs the next one.
+    grade_bands: [pre-k-2, 3-5, 6-8, 9-12]
+    solo_viability: direct
+    effort: low
+    addresses_elements: [reflection]
+
+# Quick lookups
+by_phase:
+  launch: [entry-event, need-to-know, project-wall, models-of-quality-work, rubrics, student-choice, thinking-routines, outside-experts, academic-vocabulary, reflection]
+  build_knowledge: [need-to-know, learning-log, workshop-model, academic-vocabulary, interviews, outside-experts, thinking-routines, project-wall, rubrics, student-choice, reflection]
+  develop_and_critique: [critique-protocols, revision, models-of-quality-work, rubrics, thinking-routines, workshop-model, project-wall, presentations, reflection, outside-experts, student-choice]
+  present: [presentations, audience-feedback, post-project-reflection, reflection, project-wall, rubrics, outside-experts, thinking-routines]
+
+needs_other_people: [critique-protocols]
+
+start_here_if_new: [entry-event, need-to-know, project-wall, models-of-quality-work, reflection]

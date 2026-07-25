@@ -1,0 +1,154 @@
+# The Project Path — four phases
+#
+# The structure that carries inquiry from launch to culmination. Every Gold
+# Standard project passes through all four phases; how long each takes varies
+# enormously.
+#
+# Framework by PBLWorks. Descriptions and the solo-context guidance are
+# original writing. See NOTICE.md.
+
+version: 1
+source: PBLWorks Project Path
+source_url: https://www.pblworks.org/
+doc: ../docs/05-project-path.md
+
+phases:
+  - id: launch
+    name: Launch
+    order: 1
+    typical_share: "10%"
+    purpose: >
+      Create a genuine need to know. The learner meets the problem before they
+      have the tools to solve it, and generates the questions that will drive
+      everything after.
+    learner_is_asking:
+      - What is this actually asking me to do?
+      - What do I already know?
+      - What do I need to find out?
+      - Who is going to see this?
+      - Why does this matter?
+    adult_moves:
+      - Run the entry event — something seen, done, or visited
+      - Present or co-construct the driving question
+      - Capture the Knows / Need-to-Knows / Next Steps
+      - Name the audience and the date out loud
+    key_strategies: [entry-event, need-to-know, project-wall, thinking-routines]
+    deliverable: A posted need-to-know list and a learner who wants an answer
+    solo_note: >
+      With one learner there is no group brainstorm energy to carry the launch.
+      Compensate with a stronger stimulus — go somewhere, meet someone, break
+      something open. And write the need-to-know list down where it stays
+      visible; a list you both remember discussing is not a list.
+    common_failure: >
+      Announcing the project instead of launching it. If the learner's first
+      experience is you explaining the assignment, you have skipped this phase.
+
+  - id: build_knowledge
+    name: Build Knowledge, Understanding & Skills
+    order: 2
+    typical_share: "40%"
+    purpose: >
+      The learner answers their own questions and acquires the content and
+      skills the project requires — with instruction arriving when they need
+      it, not before.
+    learner_is_asking:
+      - Where do I find this out?
+      - Can I trust this source?
+      - How does this connect to what I already found?
+      - What new questions do I have now?
+    adult_moves:
+      - Teach short, targeted lessons tied to current need-to-knows
+      - Help evaluate sources
+      - Keep the learning log going
+      - Check formatively and adjust — this is where plans change most
+      - Bring in an expert while there's still time to use what they say
+    key_strategies: [need-to-know, learning-log, workshop-model, academic-vocabulary, outside-experts, interviews, thinking-routines, models-of-quality-work]
+    deliverable: Enough knowledge to start making something real
+    solo_note: >
+      This is the phase that stalls in solo settings, because there is no peer
+      momentum and no one notices a quiet day. The check-in cadence in the
+      support plan matters more here than anywhere else. Keep lessons short —
+      a one-learner mini-lesson is five minutes, not fifteen.
+    common_failure: >
+      Front-loading. If you teach the whole unit here and then let them build,
+      the project became dessert and inquiry died in phase one.
+
+  - id: develop_and_critique
+    name: Develop & Critique
+    order: 3
+    typical_share: "35%"
+    purpose: >
+      The learner builds their answer, gets structured feedback on it, and
+      revises. Quality comes from this phase or it doesn't come at all.
+    learner_is_asking:
+      - Is this on the right track?
+      - What's missing?
+      - How do I make this better?
+      - Do I need to go find out more?
+    adult_moves:
+      - Run at least one critique protocol against the criteria
+      - Schedule the revision as its own block of work
+      - Provide new instruction when the building reveals a gap
+      - Have the learner self-assess against the rubric before you say anything
+    key_strategies: [critique-protocols, rubrics, models-of-quality-work, revision, reflection, project-wall]
+    deliverable: A revised product that is measurably better than its first version
+    solo_note: >
+      Critique needs a second person. Decide who before the project starts and
+      put them in support_plan.critique_partners — a sibling, a co-op, a
+      grandparent, an online group, an expert, or you deliberately wearing a
+      critic's hat rather than a coach's. Unnamed critique partners means no
+      critique.
+    common_failure: >
+      Compressing critique and revision into one session, or letting the first
+      draft be the final draft because time ran out. Protect this phase when
+      the schedule slips; take time from build_knowledge instead.
+
+  - id: present
+    name: Present Products
+    order: 4
+    typical_share: "15%"
+    purpose: >
+      The work goes to real people, the learner explains their reasoning, and
+      then they reflect on the whole arc.
+    learner_is_asking:
+      - What do I need to explain about this?
+      - How do I hold a room?
+      - What did I actually learn?
+      - What would I do differently?
+    adult_moves:
+      - Rehearse — content feedback first, delivery feedback later
+      - Handle logistics so the learner only has to think about the work
+      - Brief the audience on their role and give them a feedback form
+      - Run a real reflection afterwards, and celebrate properly
+    key_strategies: [presentations, audience-feedback, reflection, post-project-reflection]
+    deliverable: Work delivered to a real audience, plus the learner's reflection on it
+    solo_note: >
+      The comfort ramp lives here: one trusted adult, then a small friendly
+      group, then the real audience. Build it into the calendar as three
+      separate events. A learner who has already said it out loud twice walks
+      into the real thing differently.
+    common_failure: >
+      Cancelling or shrinking the audience at the last minute. Also: skipping
+      reflection because the presentation felt like the end. It isn't — the
+      reflection is where the learning consolidates.
+
+# Reference: what has to be true across the whole path
+invariants:
+  - id: all-phases-present
+    rule: Every project has all four phases, even a two-week one.
+  - id: critique-before-present
+    rule: >
+      At least one critique-and-revision cycle completes before the present
+      phase. Feedback that arrives with the grade is not critique.
+  - id: reflection-distributed
+    rule: >
+      At least two reflection points, in at least two different phases.
+      Reflection only at the end is a summary, not reflection.
+  - id: formative-in-middle-phases
+    rule: >
+      Formative assessment appears in both build_knowledge and
+      develop_and_critique — the two phases where you can still change course.
+  - id: ntk-drives-sequence
+    rule: >
+      Every milestone carries at least one learner need-to-know question, and
+      instruction is sequenced to answer them.

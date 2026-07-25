@@ -1,0 +1,146 @@
+# The Essential Project Design Elements
+#
+# The characteristics that separate a Gold Standard project from a craft
+# activity with a rubric attached. Framework by PBLWorks (Buck Institute for
+# Education); descriptions here are original writing. See NOTICE.md.
+#
+# PBLWorks names seven elements. We list eight because we treat "reflection"
+# and "critique & revision" as separate elements rather than one — they are
+# planned, scheduled, and fail differently, and separating them made the
+# review checks sharper. Noted so nobody thinks we miscounted.
+
+version: 1
+source: PBLWorks Gold Standard PBL — Essential Project Design Elements
+source_url: https://www.pblworks.org/what-is-pbl/gold-standard-project-design
+doc: ../docs/03-design-elements.md
+
+elements:
+  - id: learning-goals
+    name: Key Knowledge, Understanding & Success Skills
+    plan_fields: [learning_goals]
+    doc_anchor: "#1-key-knowledge-understanding--success-skills"
+    summary: >
+      The project teaches specific content derived from standards, plus one
+      explicitly named success skill. Focused, not sprawling.
+    check_questions:
+      - Are the standards specific, and does answering the driving question require them?
+      - Is exactly one success skill named, with the dimensions being taught?
+      - Is the project focused, or is it trying to cover a whole semester?
+    fails_when: >
+      The project covers everything and teaches nothing in depth, or the
+      standards were chosen after the activity was designed to justify it.
+    review_checks: [substantive-content, single-success-skill, standards-resolve]
+
+  - id: challenging-problem
+    name: Challenging Problem or Question
+    plan_fields: [driving_question]
+    doc_anchor: "#2-challenging-problem-or-question"
+    summary: >
+      A meaningful problem to solve or question to explore, expressed as an
+      open-ended driving question in the learner's own language.
+    check_questions:
+      - Is there more than one defensible answer?
+      - Would the learner understand and care about it without translation?
+      - Is it a challenge, or just a topic wearing a question mark?
+    fails_when: >
+      The question is googleable, or it names a subject ("What is a
+      watershed?") instead of posing a problem.
+    review_checks: [driving-question-shape]
+
+  - id: sustained-inquiry
+    name: Sustained Inquiry
+    plan_fields: [project_path, entry_event]
+    doc_anchor: "#3-sustained-inquiry"
+    summary: >
+      An iterative process over weeks: the learner asks questions, finds
+      resources, asks better questions, and builds answers. Not a single
+      research session.
+    check_questions:
+      - Does inquiry run across all four phases, or only at the start?
+      - Do the learner's own questions drive what happens next?
+      - Is there more than one mode of research — reading, doing, asking people?
+    fails_when: >
+      All the content is front-loaded before the project starts, so there is
+      nothing left to inquire into.
+    review_checks: [all-phases-populated, milestones-have-ntk]
+
+  - id: authenticity
+    name: Authenticity
+    plan_fields: [authenticity]
+    doc_anchor: "#4-authenticity"
+    summary: >
+      Real-world context, real tools and processes, real impact, or real
+      personal connection. Any one of the four is enough; more is better.
+    check_questions:
+      - Whose actual job does this resemble?
+      - Are the tools and quality standards the ones professionals use?
+      - Could this genuinely matter to someone outside the family?
+      - Does it connect to something this learner already cares about?
+    fails_when: >
+      "Authentic" means the worksheet mentions a career. Or the personal
+      connection is asserted rather than named.
+    review_checks: [profile-fidelity]
+
+  - id: voice-and-choice
+    name: Learner Voice & Choice
+    plan_fields: [voice_and_choice]
+    doc_anchor: "#5-learner-voice--choice"
+    summary: >
+      Meaningful decisions about topic, questions, resources, product,
+      audience, and use of time — calibrated to what this learner can handle.
+    check_questions:
+      - Are these decisions an adult professional would actually make?
+      - Is the amount of choice matched to the learner's appetite and experience?
+      - Does choice widen as the project goes on?
+    fails_when: >
+      Choice means picking a poster colour, or a learner who freezes under
+      ambiguity is handed a blank page and called empowered.
+    review_checks: [choice-calibration]
+
+  - id: reflection
+    name: Reflection
+    plan_fields: [project_path]
+    doc_anchor: "#6-reflection"
+    summary: >
+      Structured, repeated reflection on content (what), process (how), and
+      purpose (why) — during the project, not only at the end.
+    check_questions:
+      - Are there at least two reflection points, in different phases?
+      - Does reflection cover process and purpose, not just content recall?
+      - Is reflection ungraded?
+    fails_when: >
+      One reflection worksheet on the last day. Or reflections get corrected
+      and graded, which teaches the learner to write what you want to read.
+    review_checks: [reflection-spread]
+
+  - id: critique-and-revision
+    name: Critique & Revision
+    plan_fields: [project_path, support_plan]
+    doc_anchor: "#7-critique--revision"
+    summary: >
+      Structured feedback the learner actually acts on, with time scheduled
+      for the revision. At least one full cycle before the work goes public.
+    check_questions:
+      - Is there a critique cycle before the presentation, with revision time after it?
+      - Who gives the critique? In a solo setting, is that person named?
+      - Is the feedback anchored to criteria rather than taste?
+    fails_when: >
+      Feedback arrives with the final grade, when revision is impossible.
+      Or there is nobody to give it and it quietly doesn't happen.
+    review_checks: [critique-before-present]
+
+  - id: public-product
+    name: Public Product
+    plan_fields: [products, public_audience]
+    doc_anchor: "#8-public-product"
+    summary: >
+      The work goes to real people beyond the household or tutoring pair, and
+      the learner explains their reasoning and process to them.
+    check_questions:
+      - Are the audience members named, specific, real people?
+      - Does the learner have to explain their thinking, not just display an object?
+      - If the learner is anxious about audiences, is there a ramp rather than a retreat?
+    fails_when: >
+      The audience is "the family," or it got dropped because the learner is
+      shy. This is the most commonly abandoned element and the most costly.
+    review_checks: [audience-beyond-household]

@@ -1,0 +1,61 @@
+# Content License
+
+**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
+
+Copyright (c) 2026 PBL Builder contributors
+
+## What this covers
+
+This license applies to the written content of this repository:
+
+- `docs/` — the knowledge base
+- `templates/` — learner profile, project plan, and handout templates
+- `rubrics/` — all rubrics
+- `prompts/` — LLM prompts
+- `examples/` — worked exemplars
+- `.claude/skills/` — agent skill instructions
+- `framework/*.yaml` — framework data written by this project
+- `README.md`, `CLAUDE.md`, `AGENTS.md`, `CONTRIBUTING.md`, and other root Markdown
+
+## What this does NOT cover
+
+- **Code in `tools/`** is MIT licensed. See `LICENSE`.
+- **Academic standards data in `framework/standards/`** is licensed **CC BY 4.0** by Learning Commons and is *not* subject to the NonCommercial or ShareAlike terms below. You may use that data commercially, provided you retain its attribution. See `framework/standards/PROVENANCE.md`.
+
+## Summary of your rights
+
+You are free to:
+
+- **Share** — copy and redistribute this material in any medium or format
+- **Adapt** — remix, transform, and build upon it
+
+Under these terms:
+
+- **Attribution** — give appropriate credit to PBL Builder, link to this repository and to this license, and indicate if changes were made.
+- **NonCommercial** — you may not use this material for commercial purposes.
+- **ShareAlike** — if you adapt this material, you must distribute your contribution under the same license.
+- **No additional restrictions** — you may not apply legal terms or technological measures that legally restrict others from doing anything this license permits.
+
+## Notices
+
+You do not have to comply with this license for elements of the material in the public domain, or where your use is permitted by an applicable exception or limitation.
+
+No warranties are given. This license may not give you all of the permissions necessary for your intended use — other rights such as publicity, privacy, or moral rights may limit how you use the material.
+
+## About the NonCommercial term
+
+We chose NonCommercial deliberately. This content exists so that parents, tutors, and small schools can design good projects for their kids without paying for it, and so that the practitioners whose framework underpins it — [PBLWorks](https://www.pblworks.org/) — are not undercut by a commercial repackaging of a free derivative of their work.
+
+If you want to use this content commercially, [open an issue](../../issues) and let's talk. We are not trying to be difficult.
+
+## Full legal text
+
+The complete license text is at:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+A human-readable summary is at:
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+## Attribution of upstream work
+
+This content describes a framework created by PBLWorks (Buck Institute for Education). It is original writing, not a reproduction of their materials, and this project is not affiliated with or endorsed by PBLWorks. See `NOTICE.md` for full attribution.

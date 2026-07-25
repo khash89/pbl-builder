@@ -1,0 +1,162 @@
+# Collaboration
+#
+# Skill identified by PBLWorks as one of five success skills. The dimension
+# structure and ALL performance-level descriptors below are original writing by
+# PBL Builder contributors — not PBLWorks rubric language. For the official
+# rubric, see pblworks.org/resources. See NOTICE.md.
+
+version: 1
+id: collaboration
+name: Collaboration
+doc: ../../docs/08-success-skills.md#collaboration
+rubric: ../../rubrics/success-skills/collaboration.md
+
+definition: >
+  Working with other people to produce something none of you would have
+  produced alone — combining thinking, negotiating disagreement, and sharing
+  responsibility for the result.
+
+assessment_note: >
+  What is assessed here is the quality of the collaborative interaction, not the
+  quality of the thing produced. A team can produce excellent work through
+  terrible collaboration — one person doing everything — and that scores low.
+
+# ─────────────────────────────────────────────────────────────────────
+# READ THIS BEFORE TARGETING COLLABORATION IN A ONE-LEARNER SETTING
+# ─────────────────────────────────────────────────────────────────────
+# A literal block, not folded — the list structure has to survive into the
+# rendered rubric. See tools/cli/src/render-rubrics.mjs.
+solo_warning: |
+  Collaboration is the one success skill that cannot be faked in a solo project.
+  If there is no genuine second party with their own stake and their own
+  opinions, do not target this skill — you will end up assessing compliance with
+  an adult, which is a different thing entirely and teaches the wrong lesson.
+
+  Target it only if at least one of these is genuinely true:
+
+  - A co-op, sibling, or partner learner is a real collaborator with shared
+    ownership of the product and the right to disagree
+  - The learner works with an outside expert or community partner across several
+    exchanges, not a single interview
+  - The learner is collaborating with a client whose requirements they don't
+    control
+
+  An adult who can overrule the learner is not a collaborator. If none of the
+  above holds, pick complex-communication or self-directed-learning instead —
+  both are genuinely assessable alone, and both transfer.
+
+levels: [beginning, emerging, developing, demonstrating]
+
+dimensions:
+  - id: planning-and-decisions
+    name: Shared Planning & Decision-Making
+    question: How do they organise the work together?
+    levels:
+      beginning: >
+        Divides work by convenience or seniority, or does it all themselves.
+        Inflexible once the split is made. Doesn't consider who is suited to what.
+      emerging: >
+        Participates in dividing the work and mostly holds to the agreement.
+        Division tends to be equal-sized rather than well-matched.
+      developing: >
+        Suggests a division based on what people are actually good at and
+        interested in. Renegotiates when circumstances change.
+      demonstrating: >
+        Proposes roles that draw on each person's specific strengths, identifies
+        the trade-offs between different ways of proceeding, and suggests how
+        the group should decide when it disagrees — before it has to.
+    teach_by:
+      - Require a written working agreement with a named process for disagreement
+      - Ask who is best placed to do this and why, rather than who wants to
+      - Debrief the process separately from the product
+    look_for: >
+      Proposing a decision-making rule before a decision is contested. Genuinely
+      sophisticated and rare.
+
+  - id: building-on-thinking
+    name: Building on Others' Thinking
+    question: Do they use what other people say?
+    levels:
+      beginning: >
+        Restates or repeats what others said. Contributions sit side by side
+        without connecting.
+      emerging: >
+        Responds to others' ideas and agrees or disagrees. Builds on them
+        occasionally.
+      developing: >
+        Extends others' ideas with new information, and can summarise where the
+        group has got to.
+      demonstrating: >
+        Rephrases the group's collective thinking, connects it to new
+        information, and names what's still missing — moving the group forward
+        rather than adding to a pile.
+    teach_by:
+      - '"What I heard was ___, and it makes me think ___" as a required frame'
+      - Assign someone to summarise where the group stands every ten minutes
+      - Ban starting a turn without referencing the previous one
+    look_for: >
+      Naming a gap in the group's shared thinking. That's the demonstrating
+      behaviour.
+
+  - id: productive-disagreement
+    name: Productive Disagreement
+    question: What happens when they don't agree?
+    levels:
+      beginning: >
+        Withdraws, gives in immediately, or escalates. Disagreement becomes
+        about the people.
+      emerging: >
+        Stays in the conversation but disagreement stalls — either an impasse or
+        a coin-flip.
+      developing: >
+        Keeps disagreement on the substance. Looks for what both positions
+        assume and where they overlap.
+      demonstrating: >
+        Frames disagreement so it's productive — states the other position
+        fairly, identifies the real point of difference, and helps the group
+        find common ground or a legitimate way to decide without one.
+    teach_by:
+      - Require stating the other position to its holder's satisfaction first
+      - '"What would change your mind?" asked of everyone including themselves'
+      - Separate the disagreement from the decision — explore, then decide
+    look_for: >
+      Improving the argument they disagree with. Almost unmistakable evidence.
+
+  - id: shared-responsibility
+    name: Shared Responsibility
+    question: Do they carry their share and support the others?
+    levels:
+      beginning: >
+        Does their piece and nothing more, or takes over everything. Missed
+        commitments become someone else's problem.
+      emerging: >
+        Completes their own commitments with reminders. Aware of others'
+        progress but not acting on it.
+      developing: >
+        Reliable, and notices when a teammate is stuck. Offers help without
+        taking over.
+      demonstrating: >
+        Holds themselves accountable to the group, raises problems early rather
+        than at the deadline, and supports teammates in a way that builds their
+        capability instead of substituting for it.
+    teach_by:
+      - A shared, visible task log — everyone sees everyone's status
+      - Normalise raising a slip early; make it explicitly safe
+      - '"Help without doing it for them" as an explicit, practised skill'
+    look_for: >
+      Flagging their own slip before anyone notices. That's the behaviour that
+      makes teams work.
+
+project_design_notes:
+  needs_from_project:
+    - A genuine second party with their own stake and the standing to disagree
+    - Work that actually requires more than one person — not divisible into
+      parallel solo tasks
+    - A written working agreement, including how disagreements get settled
+    - Process debriefs separate from product feedback
+  pairs_well_with_products: [event, business-or-venture-plan, documentary-or-video, exhibit-or-installation, interactive-map-or-tour]
+  weak_pairing_warning: >
+    A product that splits cleanly into independent parts produces cooperation,
+    not collaboration — everyone does their bit and it gets stapled together.
+    The work has to require joint thinking. See solo_warning above before
+    choosing this skill at all in a one-learner setting.

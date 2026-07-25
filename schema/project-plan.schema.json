@@ -1,0 +1,460 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OWNER/pbl-builder/schema/project-plan.schema.json",
+  "title": "PBL Builder Project Plan",
+  "description": "A Gold Standard PBL project designed for one specific learner. Lives in the YAML frontmatter of a project-plan.md. The body of that file carries the required headings: Project Summary, Why This Project For This Learner, Week-by-Week Plan, Notes & Adaptations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "title",
+    "slug",
+    "status",
+    "learner_profile",
+    "grade",
+    "subjects",
+    "duration",
+    "driving_question",
+    "learning_goals",
+    "authenticity",
+    "products",
+    "public_audience",
+    "voice_and_choice",
+    "entry_event",
+    "project_path",
+    "scaffolds",
+    "assessment",
+    "support_plan"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120,
+      "description": "A name the learner would actually say out loud. 'The Creek Project' beats 'Grade 4 Watershed Interdisciplinary Unit'."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "kebab-case. Matches the containing folder name."
+    },
+    "status": {
+      "enum": ["draft", "reviewed", "in-progress", "completed", "abandoned"],
+      "description": "`reviewed` means it has passed `pbl review` with no failures. `abandoned` is a legitimate outcome worth recording — see Notes & Adaptations."
+    },
+    "learner_profile": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Relative path to the learner-profile.md this plan was designed from. Required — a plan with no profile behind it is the failure mode this repo exists to prevent. `pbl review` reads it to check profile fidelity.",
+      "examples": ["./learner-profile.md"]
+    },
+
+    "grade": { "$ref": "learner-profile.schema.json#/$defs/grade" },
+    "subjects": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+
+    "duration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["weeks", "hours_per_week"],
+      "properties": {
+        "weeks": { "type": "integer", "minimum": 1, "maximum": 40 },
+        "hours_per_week": { "type": "number", "exclusiveMinimum": 0, "maximum": 40 }
+      }
+    },
+
+    "driving_question": {
+      "type": "string",
+      "minLength": 15,
+      "maxLength": 200,
+      "description": "Open-ended, in language this learner would use, and answerable only by learning the target standards. `pbl review` checks its shape. See docs/07-driving-questions.md."
+    },
+
+    "learning_goals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["standards", "understandings", "success_skill"],
+      "properties": {
+        "standards": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["framework", "code", "text"],
+            "properties": {
+              "framework": { "type": "string", "minLength": 2 },
+              "code": { "type": "string", "minLength": 2 },
+              "text": { "type": "string", "minLength": 10 },
+              "jurisdiction": { "type": "string" },
+              "assessed_by": {
+                "type": "string",
+                "description": "Which product or assessment provides evidence for this standard. If you can't name one, the standard isn't really in the project."
+              }
+            }
+          }
+        },
+        "understandings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 },
+          "description": "What you want them to still understand in a year, in your own words. Bigger than any single standard."
+        },
+        "success_skill": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["skill", "dimensions"],
+          "description": "EXACTLY ONE skill, with the specific dimensions being taught. Everything else on that rubric is explicitly out of scope for this project.",
+          "properties": {
+            "skill": { "$ref": "learner-profile.schema.json#/$defs/success_skill" },
+            "dimensions": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": { "type": "string" }
+            },
+            "target_level": { "$ref": "learner-profile.schema.json#/$defs/skill_level" },
+            "taught_how": {
+              "type": "string",
+              "description": "How the skill gets explicitly TAUGHT, not just assessed. This is the field people skip, and skipping it is why success skills don't grow."
+            }
+          }
+        }
+      }
+    },
+
+    "authenticity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context", "real_world_processes", "impact", "personal_connection"],
+      "properties": {
+        "context": {
+          "type": "string",
+          "minLength": 10,
+          "description": "The real-world situation this mirrors. Whose job looks like this?"
+        },
+        "real_world_processes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "Actual tools, methods, and quality standards from that world."
+        },
+        "impact": {
+          "type": "string",
+          "minLength": 10,
+          "description": "What could genuinely change because this work exists. 'Nothing, but it's realistic' is an honest answer — write that instead of inventing impact."
+        },
+        "personal_connection": {
+          "type": "string",
+          "minLength": 10,
+          "description": "MUST name a specific interest from the learner profile. `pbl review` check 9 verifies this — 'connects to student interests' will fail. Name the interest."
+        }
+      }
+    },
+
+    "products": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary"],
+      "description": "What the learner makes. In a solo context one strong product beats three thin ones.",
+      "properties": {
+        "primary": { "$ref": "#/$defs/product" },
+        "secondary": { "$ref": "#/$defs/product" }
+      }
+    },
+
+    "public_audience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["who", "format"],
+      "properties": {
+        "who": {
+          "type": "string",
+          "minLength": 3,
+          "description": "Real people beyond the household or tutoring pair. Name them. 'The community' is not an audience; 'the watershed council's monthly meeting' is."
+        },
+        "format": { "type": "string", "minLength": 3, "description": "How the work reaches them." },
+        "date": { "type": "string", "description": "Target date. Set it early — it's what makes the deadline real." },
+        "comfort_ramp": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Graduated rehearsal audiences for a learner with low audience_comfort: one trusted adult → small friendly group → the real audience. Required by `pbl review` when the profile says audience_comfort is low. This is the alternative to dropping the public product — never do that."
+        },
+        "backup_plan": { "type": "string", "description": "What happens if the audience falls through. It sometimes does." }
+      }
+    },
+
+    "voice_and_choice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content", "process", "product", "calibrated_for"],
+      "description": "Real decisions the learner makes — the kind an adult professional would make. Choosing the font colour is not voice and choice.",
+      "properties": {
+        "content": { "type": "array", "items": { "type": "string" }, "description": "Choices about what to investigate." },
+        "process": { "type": "array", "items": { "type": "string" }, "description": "Choices about how to work." },
+        "product": { "type": "array", "items": { "type": "string" }, "description": "Choices about what to make and for whom." },
+        "calibrated_for": {
+          "enum": ["low", "medium", "high"],
+          "description": "Must match the profile's preferences.choice_appetite. `pbl review` check 11."
+        },
+        "widens_when": {
+          "type": "string",
+          "description": "For a low-appetite learner: what has to happen before you offer more choice. Choice should grow during the project."
+        }
+      }
+    },
+
+    "entry_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "anticipated_ntk"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 20,
+          "description": "The hook. Something seen, done, or visited — not a topic announcement. Design it so the questions you want naturally get asked."
+        },
+        "anticipated_ntk": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string" },
+          "description": "Questions you expect the learner to raise. If your list doesn't overlap the standards, the entry event is pointing the wrong way."
+        }
+      }
+    },
+
+    "project_path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["launch", "build_knowledge", "develop_and_critique", "present"],
+      "description": "All four phases, always. See framework/project-path.yaml.",
+      "properties": {
+        "launch": { "$ref": "#/$defs/milestones" },
+        "build_knowledge": { "$ref": "#/$defs/milestones" },
+        "develop_and_critique": { "$ref": "#/$defs/milestones" },
+        "present": { "$ref": "#/$defs/milestones" }
+      }
+    },
+
+    "scaffolds": {
+      "type": "array",
+      "description": "Supports selected for THIS learner's needs. Every populated need tag in the profile must be addressed by at least one scaffold (`pbl review` check 9), and every scaffold must have a fade plan (check 10).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "addresses", "phase", "fade_plan"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Scaffold id from framework/scaffolds.yaml, or a custom id if you invented one."
+          },
+          "addresses": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "Which need tags from the profile this addresses."
+          },
+          "phase": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/phase_name" },
+            "description": "Which phases it's in play."
+          },
+          "fade_plan": {
+            "type": "string",
+            "minLength": 10,
+            "description": "How and when this support comes off. Required. A scaffold that never fades is a permanent accommodation — put those in the profile's needs.accommodations instead."
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formative", "summative", "success_skill_checks"],
+      "properties": {
+        "formative": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["what", "when", "phase"],
+            "properties": {
+              "what": { "type": "string", "minLength": 5 },
+              "when": { "type": "string" },
+              "phase": { "$ref": "#/$defs/phase_name" },
+              "responds_how": {
+                "type": "string",
+                "description": "What you'll DO with what you learn. Formative assessment you don't act on is just record-keeping."
+              }
+            }
+          },
+          "description": "Must include checks in both build_knowledge and develop_and_critique (`pbl review` check 8)."
+        },
+        "summative": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["what", "criteria_from"],
+            "properties": {
+              "what": { "type": "string", "minLength": 5 },
+              "criteria_from": {
+                "type": "string",
+                "description": "Where the criteria come from — a rubric path, or the standards themselves."
+              },
+              "who_assesses": { "type": "string", "description": "Teacher, learner, peer, expert, audience, or several." }
+            }
+          }
+        },
+        "success_skill_checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "How growth on the ONE targeted skill gets checked, separately from content. Include at least one self-assessment — the skill rubrics are for the learner, not just you."
+        }
+      }
+    },
+
+    "support_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adult_role", "check_in_cadence", "stuck_protocol"],
+      "description": "Replaces classroom management in a one-learner setting. This is the section that determines whether week three holds together.",
+      "properties": {
+        "adult_role": {
+          "type": "string",
+          "minLength": 10,
+          "description": "What you do and, importantly, what you don't. 'I answer questions with questions until Thursday' is a real role."
+        },
+        "check_in_cadence": {
+          "type": "string",
+          "minLength": 5,
+          "description": "How often you formally check in, and what happens in that check-in."
+        },
+        "stuck_protocol": {
+          "type": "string",
+          "minLength": 20,
+          "description": "What happens when the learner stalls — the specific escalation, before it becomes a crisis. Required, because it always happens and improvising it goes badly."
+        },
+        "critique_partners": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Who provides critique when there's no class. A sibling, a co-op, a grandparent, an online group, an expert, you in a different role. Name them — critique with nobody to give it doesn't happen."
+        },
+        "when_to_stop": {
+          "type": "string",
+          "description": "Your own tripwire for abandoning or reshaping the project. Worth deciding in advance, while you're calm."
+        }
+      }
+    },
+
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "experts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["who"],
+            "properties": {
+              "who": { "type": "string" },
+              "role": { "type": "string", "description": "What you're asking of them." },
+              "phase": { "$ref": "#/$defs/phase_name" },
+              "status": { "enum": ["idea", "contacted", "confirmed", "declined"] }
+            }
+          }
+        },
+        "field_experiences": { "type": "array", "items": { "type": "string" } },
+        "materials": { "type": "array", "items": { "type": "string" } },
+        "texts_and_media": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Sources the learner will use. Check these against their reading level."
+        }
+      }
+    },
+
+    "updated": { "type": "string", "format": "date" }
+  },
+
+  "$defs": {
+    "phase_name": {
+      "enum": ["launch", "build_knowledge", "develop_and_critique", "present"]
+    },
+
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "description", "criteria", "why_this_learner"],
+      "properties": {
+        "name": { "type": "string", "minLength": 3 },
+        "type": {
+          "type": "string",
+          "description": "A product type id from framework/product-types.yaml. `pbl review` check 9 verifies its modes overlap the learner's product_modes."
+        },
+        "description": { "type": "string", "minLength": 15 },
+        "criteria": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string" },
+          "description": "What makes it good. Derive these from the standards, not from neatness."
+        },
+        "why_this_learner": {
+          "type": "string",
+          "minLength": 15,
+          "description": "Why THIS product for THIS learner. If you can't answer, you picked a product type off a list rather than for a person."
+        },
+        "made_public_how": { "type": "string" }
+      }
+    },
+
+    "milestones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "ntk_questions", "learning_experiences"],
+        "properties": {
+          "name": { "type": "string", "minLength": 3, "description": "What gets accomplished." },
+          "week": { "type": "string", "description": "Rough timing, e.g. '1' or '2-3'." },
+          "ntk_questions": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "What the learner needs to figure out here. Written as their question, not your objective."
+          },
+          "learning_experiences": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "Lessons, activities, research, visits, practice."
+          },
+          "scaffolds": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Scaffold ids in play at this milestone."
+          },
+          "formative_assessment": { "type": "string" },
+          "reflection": {
+            "type": "string",
+            "description": "A reflection prompt or protocol. `pbl review` check 7 wants at least two across at least two phases."
+          },
+          "critique": {
+            "type": "string",
+            "description": "A critique-and-revision cycle. At least one must occur before the present phase (check 6)."
+          },
+          "deliverable": { "type": "string", "description": "What exists at the end of this milestone." }
+        }
+      }
+    }
+  }
+}

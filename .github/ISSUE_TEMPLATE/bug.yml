@@ -1,0 +1,61 @@
+name: Bug
+description: The CLI, a schema, or the standards data is broken
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. Before filing, please run `npm test` in `tools/cli` — if that fails on a clean clone, say so, because it's a different and more serious bug.
+
+        **Do not paste a learner profile.** If the bug involves one, redact it or reproduce it with an example from `examples/`.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is it?
+      options:
+        - pbl profile check
+        - pbl validate
+        - pbl review
+        - pbl standards (search / show / sync / list)
+        - pbl plan new / profile new
+        - pbl framework
+        - A JSON schema
+        - The standards data itself
+        - Installation
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened?
+      placeholder: |
+        Expected: `pbl review` to flag the missing critique cycle.
+        Happened: it passed with 15/15.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How do I reproduce it?
+      description: The exact command, and the smallest input that shows the problem.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Full output
+      render: shell
+
+  - type: input
+    id: versions
+    attributes:
+      label: Node version and how you installed
+      placeholder: "Node 20.11.0, npx pbl-builder"
+    validations:
+      required: true

@@ -1,0 +1,296 @@
+# Product types
+#
+# What the learner makes and gives to a real audience.
+#
+# The `modes` field is the machine-usable part: it maps each product to the
+# preferences.product_modes enum in the learner profile schema, so a product
+# menu can be filtered to what a specific learner is actually drawn to.
+# `pbl review` check 9 uses it to catch a product chosen off a list rather
+# than for a person.
+#
+# Product categories informed by the PBLWorks Product Toolkit; all descriptions,
+# criteria, mode tags, and solo/effort guidance are original writing. See NOTICE.md.
+
+version: 1
+source: PBLWorks Product Toolkit (categories); descriptions original
+source_url: https://www.pblworks.org/resources
+doc: ../docs/03-design-elements.md#8-public-product
+
+# effort: rough build cost once research is done — low ≈ days, medium ≈ 1-2 weeks, high ≈ 2-3 weeks
+# audience_pressure: how exposed the learner is at handoff. Matters for audience_comfort: low learners.
+#   low = the artifact goes without them; medium = they're present and speak briefly;
+#   high = sustained live performance under questioning.
+
+products:
+  - id: physical-model
+    name: Physical Model or Prototype
+    modes: [build-physical, draw-or-design, map-or-diagram]
+    summary: >
+      A three-dimensional thing that demonstrates how something works, or a
+      working prototype of a proposed solution.
+    good_for: [Science, Engineering, Mathematics, Design]
+    audiences: [engineers, city staff, facilities managers, makerspace community, younger learners]
+    quality_criteria:
+      - Accurately represents the system or solution, including its limits
+      - Design choices are explained and justified with evidence
+      - Went through at least one build-test-revise cycle
+      - A viewer understands it without the maker standing there
+    effort: medium
+    audience_pressure: low
+    solo_note: >
+      Excellent for solo work — the object carries the presentation, so the
+      learner isn't the only thing the audience looks at. The failure mode is
+      craft swallowing content: budget explicit time for the explanation, not
+      just the build.
+    watch_for: >
+      A model that's beautiful and demonstrates nothing. Criteria should reward
+      the reasoning, not the finish.
+
+  - id: policy-proposal
+    name: Policy Proposal
+    modes: [write, persuade-or-argue, code-or-data]
+    summary: >
+      A formal recommendation that a specific body should do a specific thing,
+      argued from evidence.
+    good_for: [Social Studies, Civics, English Language Arts, Science, Mathematics]
+    audiences: [school board, town council, planning commission, principal, nonprofit board]
+    quality_criteria:
+      - Names a real decision-maker with the actual power to act
+      - The problem is established with evidence, not assertion
+      - Considers and answers at least one serious objection
+      - The recommendation is specific enough to be implemented or rejected
+    effort: medium
+    audience_pressure: high
+    solo_note: >
+      Strong choice for a learner who likes to argue. The real audience is
+      easier to get than people expect — public bodies have public comment
+      periods, and a prepared young person is memorable.
+    watch_for: >
+      Proposing to "raise awareness." That's not a policy. Push for a decision
+      someone has to make.
+
+  - id: documentary-or-video
+    name: Documentary or Short Film
+    modes: [film-or-photograph, write, teach-others]
+    summary: >
+      A short film that explains, argues, or documents — from a two-minute
+      explainer to a fifteen-minute documentary.
+    good_for: [English Language Arts, Social Studies, Science, Arts]
+    audiences: [film night attendees, online audience, community organization, younger classes]
+    quality_criteria:
+      - A clear argument or narrative arc, not a slideshow with a voiceover
+      - Sources and interviewees are credited
+      - Audio is intelligible — the most-failed criterion, and the most fixable
+      - Edited to length; nothing survives that isn't earning its place
+    effort: high
+    audience_pressure: low
+    solo_note: >
+      Handle with care solo. Filming and editing eat weeks, and a learner can
+      spend the whole project on transitions. Cap the runtime hard, and make
+      the script a separate reviewed deliverable before any filming starts.
+    watch_for: >
+      Tech available? Check `constraints.tech_available` before committing.
+      Editing on a phone is possible but slow.
+
+  - id: podcast
+    name: Podcast or Audio Story
+    modes: [record-audio, write, teach-others, persuade-or-argue]
+    summary: >
+      An audio episode or short series — interview, narrative, documentary, or
+      argument.
+    good_for: [English Language Arts, Social Studies, Science, World Languages]
+    audiences: [podcast listeners, community radio, co-op families, subject-specific online community]
+    quality_criteria:
+      - Structured so a listener can follow without visuals
+      - Interviews go beyond the first answer
+      - Scripted and rehearsed where it needs to be, natural where it doesn't
+      - Clean audio; ambient noise controlled
+    effort: medium
+    audience_pressure: low
+    solo_note: >
+      One of the best solo products. Low equipment cost, the learner can record
+      alone and re-record without embarrassment, and interviewing is a
+      genuinely authentic research method that also builds communication.
+      Especially good for a learner who won't present live but will talk.
+    watch_for: >
+      Rambling. A tight script or at least a beat sheet is the difference
+      between a podcast and a recording.
+
+  - id: infographic-or-data-brief
+    name: Infographic or Data Brief
+    modes: [draw-or-design, code-or-data, map-or-diagram, write]
+    summary: >
+      A visual, evidence-dense one-pager that makes a finding legible at a
+      glance.
+    good_for: [Mathematics, Science, Social Studies, Health]
+    audiences: [decision-makers, community newsletter, clinic or library display, school board packet]
+    quality_criteria:
+      - The main finding is graspable in under fifteen seconds
+      - Every number is sourced and the source is on the page
+      - The visual encoding doesn't distort the data
+      - Text is trimmed to what the graphics can't say
+    effort: low
+    audience_pressure: low
+    solo_note: >
+      Great secondary product — it forces synthesis and pairs naturally with a
+      bigger primary product. Also good for a learner who resists writing at
+      length but will fight to get a chart right.
+    watch_for: >
+      Decoration passing as design. Ask what each visual element is doing.
+
+  - id: public-service-announcement
+    name: Public Service Announcement
+    modes: [film-or-photograph, record-audio, draw-or-design, persuade-or-argue]
+    summary: >
+      A short, sharp message designed to change what an audience knows or does.
+    good_for: [Health, Science, Social Studies, English Language Arts]
+    audiences: [school announcements, local radio, social media, clinic or community board]
+    quality_criteria:
+      - One behaviour change, named explicitly
+      - Targeted at a specific audience, not everyone
+      - Grounded in accurate evidence
+      - Short enough to survive contact with a distracted viewer
+    effort: low
+    audience_pressure: low
+    solo_note: >
+      Fast and achievable — a good first project or a good secondary product.
+      Its brevity is deceptive: getting to thirty compelling seconds requires
+      real understanding, which is the point.
+    watch_for: >
+      Fear-based messaging that doesn't work. Ask what evidence says actually
+      changes behaviour.
+
+  - id: exhibit-or-installation
+    name: Museum Exhibit or Installation
+    modes: [build-physical, draw-or-design, write, teach-others]
+    summary: >
+      A curated display organized around a theme, with interpretive text that
+      teaches a visitor something.
+    good_for: [Social Studies, Science, Arts, English Language Arts]
+    audiences: [library visitors, museum, community centre, hallway or co-op showcase]
+    quality_criteria:
+      - A clear curatorial argument, not just a collection of things
+      - Interpretive labels written for a real visitor, not for the teacher
+      - Sequence guides the visitor through an idea
+      - Works when the curator isn't in the room
+    effort: medium
+    audience_pressure: medium
+    solo_note: >
+      Libraries and community centres say yes to student exhibits far more
+      often than people ask. The visitor's path forces the learner to think
+      about audience explicitly, which makes it strong for complex
+      communication.
+    watch_for: >
+      Label text at the wrong reading level for the actual visitors.
+
+  - id: business-or-venture-plan
+    name: Business or Venture Plan
+    modes: [write, code-or-data, persuade-or-argue, organize-an-event]
+    summary: >
+      A plan for a real or proposed enterprise — a market, a budget, an
+      operating model, and a pitch.
+    good_for: [Mathematics, Economics, Social Studies, Career and Technical Education]
+    audiences: [local business owners, credit union, chamber of commerce, incubator, family investors]
+    quality_criteria:
+      - Numbers that reconcile, with assumptions stated
+      - Evidence of real demand, not assumed demand
+      - Risks named honestly, with responses
+      - A pitch that survives hostile questions
+    effort: high
+    audience_pressure: high
+    solo_note: >
+      Very strong for math authenticity — budgeting is arithmetic that matters.
+      If the venture is one the learner actually intends to run, engagement
+      takes care of itself and your job becomes rigour.
+    watch_for: >
+      Revenue projections invented to make the spreadsheet work. Make the
+      assumptions an explicit criterion.
+
+  - id: picture-book-or-zine
+    name: Picture Book or Zine
+    modes: [write, draw-or-design, teach-others]
+    summary: >
+      An illustrated short work written for a specific, real reader.
+    good_for: [English Language Arts, Science, Social Studies, Health]
+    audiences: [younger children, waiting rooms, library collection, siblings, a specific class]
+    quality_criteria:
+      - Pitched accurately at the named reader
+      - Accurate content — simplified, not wrong
+      - Words and pictures each do work the other can't
+      - Tested with at least one real reader from the target audience, and revised
+    effort: medium
+    audience_pressure: low
+    solo_note: >
+      The "explain it to a six-year-old" constraint is a rigorous test of
+      understanding, and it's achievable alone. Reading it to actual young
+      children is a genuine public product with almost no logistics.
+    watch_for: >
+      Writing for the adult in the room instead of the child on the page.
+
+  - id: idea-talk
+    name: Idea Talk
+    modes: [perform-or-present, persuade-or-argue, teach-others]
+    summary: >
+      A short, well-built talk delivering one idea well — TED-shaped.
+    good_for: [any]
+    audiences: [co-op event, community group, online audience, invited guests, a class of peers]
+    quality_criteria:
+      - One idea, stated in a sentence
+      - Structured with an opening that earns attention and an ending that lands
+      - Evidence integrated, not appended
+      - Rehearsed enough to be delivered without reading
+    effort: low
+    audience_pressure: high
+    solo_note: >
+      Cheapest product to produce and the most demanding to deliver. Pair it
+      with a comfort ramp — one adult, then a small group, then the room — and
+      it's transformative for a learner who thinks they can't present. Also the
+      best possible vehicle for the complex-communication success skill.
+    watch_for: >
+      Slides as a script. Consider banning slides entirely for a first talk.
+
+  - id: interactive-map-or-tour
+    name: Interactive Map or Tour
+    modes: [map-or-diagram, code-or-data, film-or-photograph, teach-others]
+    summary: >
+      A map or guided tour — digital or physical — that communicates something
+      about a place.
+    good_for: [Social Studies, Geography, Science, English Language Arts]
+    audiences: [visitors, library, historical society, town website, new residents]
+    quality_criteria:
+      - Geographically accurate and correctly sourced
+      - Each stop earns its place in the sequence
+      - Tells one story rather than listing locations
+      - Usable by a stranger with no orientation
+    effort: medium
+    audience_pressure: medium
+    solo_note: >
+      Naturally local, which makes authenticity easy, and fieldwork gets the
+      learner out of the house. A led walking tour is a strong live product for
+      a learner who freezes on a stage but is fine while walking and pointing.
+    watch_for: >
+      Scope. Ten stops is a semester; three good stops is a project.
+
+  - id: event
+    name: Organized Event
+    modes: [organize-an-event, persuade-or-argue, teach-others, perform-or-present]
+    summary: >
+      A real event the learner plans, promotes, and hosts — a clean-up, a
+      fair, a workshop, a screening, a repair café.
+    good_for: [Mathematics, Social Studies, Health, Career and Technical Education]
+    audiences: [attendees, community partners, sponsors, local press]
+    quality_criteria:
+      - Budget planned and reconciled against what actually happened
+      - Logistics documented well enough for someone else to repeat it
+      - Attendance and outcomes measured against a stated goal
+      - Partners and attendees thanked and debriefed
+    effort: high
+    audience_pressure: high
+    solo_note: >
+      The most authentic product on this list and the most likely to overrun.
+      For a solo learner, keep it small and real — twelve neighbours in a park
+      beats an imagined two hundred. Adult logistical support is legitimate
+      here; the learner owns the decisions, you can own the liability.
+    watch_for: >
+      Effort going entirely into the event and none into the learning. Require
+      a written debrief against the goal as part of the product.

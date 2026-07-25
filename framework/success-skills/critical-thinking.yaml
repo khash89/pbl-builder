@@ -1,0 +1,146 @@
+# Critical Thinking
+#
+# Skill identified by PBLWorks as one of five success skills. The dimension
+# structure and ALL performance-level descriptors below are original writing by
+# PBL Builder contributors — they are not PBLWorks rubric language. For the
+# official rubric, see pblworks.org/resources. See NOTICE.md.
+#
+# The `dimensions[].id` values are what a learner profile's
+# success_skill_target.dimensions field references. Pick ONE or TWO.
+
+version: 1
+id: critical-thinking
+name: Critical Thinking
+doc: ../../docs/08-success-skills.md#critical-thinking
+rubric: ../../rubrics/success-skills/critical-thinking.md
+
+definition: >
+  Making reasoned judgments — working out what evidence means, drawing
+  conclusions that the evidence actually supports, and evaluating the quality
+  of claims including your own.
+
+research_note: >
+  The widely used consensus definition (Facione, Delphi Report, 1990) describes
+  critical thinking as purposeful, self-regulatory judgment involving
+  interpretation, analysis, evaluation, and inference — and, importantly, as a
+  disposition as much as a procedure: habitually inquisitive, willing to
+  reconsider, honest about one's own biases.
+
+why_it_needs_a_project: >
+  Critical thinking cannot be taught in the abstract. You think critically
+  *about* something. A project supplies the something, and — crucially —
+  supplies a real reason to get the judgment right.
+
+levels: [beginning, emerging, developing, demonstrating]
+
+dimensions:
+  - id: explanation-and-analysis
+    name: Explanation & Analysis
+    question: Can they take something apart and say how it works?
+    levels:
+      beginning: >
+        Restates what a source said. Notices details but treats them as a list
+        rather than as connected parts.
+      emerging: >
+        Summarises accurately and picks out which details matter. Begins to
+        explain a cause or a relationship, usually one at a time.
+      developing: >
+        Explains how parts of a system relate, using more than one step of
+        reasoning. Notices patterns across sources.
+      demonstrating: >
+        Builds a chain of reasoning that uncovers relationships, patterns, and
+        inconsistencies — including cases that don't fit the pattern, and says
+        so rather than smoothing them over.
+    teach_by:
+      - Ask "and then what happens?" repeatedly until the chain runs out
+      - Require them to find one thing that doesn't fit their own explanation
+      - Use the What Makes You Say That? routine on their own claims, not just sources
+    look_for: >
+      Unprompted use of "because" and "which means" — and the harder signal,
+      voluntarily raising a counterexample to their own point.
+
+  - id: inference-and-evidence
+    name: Inference & Use of Evidence
+    question: Do their conclusions actually follow from what they found?
+    levels:
+      beginning: >
+        States a conclusion. Evidence appears alongside it but isn't clearly
+        connected to it, or is a single source taken at face value.
+      emerging: >
+        Draws a conclusion and cites evidence for it. Tends to treat all
+        sources as equally reliable.
+      developing: >
+        Draws conclusions from multiple sources and begins to weigh them,
+        noticing when sources disagree.
+      demonstrating: >
+        Draws conclusions the evidence genuinely supports — no further — and
+        states the limits: what this evidence can't tell us, and what would
+        change the conclusion.
+    teach_by:
+      - "Ask: what would have to be true for this conclusion to be wrong?"
+      - Give them two sources that conflict and require them to resolve it
+      - Require a stated limitation on every finding in the final product
+    look_for: >
+      Hedging that is precise rather than vague — "this only covers one summer,
+      so I can't say it's a trend" is the target.
+
+  - id: evaluation-of-claims
+    name: Evaluation of Claims & Sources
+    question: Can they judge whether something is worth believing?
+    levels:
+      beginning: >
+        Accepts sources as true or rejects them on surface features. Judgments
+        rest on whether the claim matches what they already think.
+      emerging: >
+        Identifies obvious strengths and weaknesses in an argument. Recognises
+        that sources have authors with purposes.
+      developing: >
+        Applies criteria — currency, expertise, method, agenda — fairly
+        consistently. Identifies bias in others' claims.
+      demonstrating: >
+        Evaluates against multiple criteria, identifies bias including in
+        sources they agree with, and seeks out the strongest version of an
+        opposing view rather than the weakest.
+    teach_by:
+      - Have them argue the position they disagree with, well
+      - Ask "who benefits if I believe this?" of every source
+      - Have them audit their own product for bias before it goes public
+    look_for: >
+      Applying scepticism symmetrically. Most learners are sceptical of sources
+      they dislike; the skill is being sceptical of the convenient ones.
+
+  - id: problem-framing
+    name: Problem Framing
+    question: Can they work out what the real question is?
+    levels:
+      beginning: >
+        Accepts the problem exactly as handed to them.
+      emerging: >
+        Restates the problem in their own words and identifies what they'd need
+        to know to address it.
+      developing: >
+        Breaks a large problem into tractable sub-questions and identifies which
+        matter most.
+      demonstrating: >
+        Reframes the problem when the original framing is wrong or too narrow,
+        and can justify the reframing.
+    teach_by:
+      - "Ask: is this the right question, or just the first question?"
+      - Have them write three versions of the driving question and choose
+      - Point at a dead end and ask what the question should have been
+    look_for: >
+      A learner who says "I think we're asking the wrong thing" — the most
+      valuable and least common move on this rubric.
+
+# For a project targeting critical thinking
+project_design_notes:
+  needs_from_project:
+    - A driving question with genuinely competing defensible answers
+    - Sources that disagree with each other
+    - A product that requires justifying a position, not just reporting findings
+    - An audience who might push back
+  pairs_well_with_products: [policy-proposal, idea-talk, infographic-or-data-brief, documentary-or-video, business-or-venture-plan]
+  weak_pairing_warning: >
+    A project where the answer is known in advance cannot develop critical
+    thinking, however well designed the rest of it is. If you're targeting this
+    skill, check the driving question first.

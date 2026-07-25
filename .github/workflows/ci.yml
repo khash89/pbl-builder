@@ -1,0 +1,135 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20', '22', '24']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: tools/cli/package.json
+
+      - name: Install
+        working-directory: tools/cli
+        run: npm install --no-audit --no-fund
+
+      # Schemas, review-check fixtures, standards snapshot, rubric drift,
+      # repo-wide link check, and the attribution integrity check.
+      - name: Test
+        working-directory: tools/cli
+        run: npm test
+
+  examples:
+    name: Examples validate and review clean
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: tools/cli/package.json
+
+      - name: Install
+        working-directory: tools/cli
+        run: npm install --no-audit --no-fund
+
+      # Every shipped example must stay clean. This is what stops a schema or
+      # framework change from silently degrading the exemplars.
+      - name: Check every example
+        run: |
+          status=0
+          for dir in examples/*/; do
+            name=$(basename "$dir")
+            echo "::group::$name"
+
+            node tools/cli/src/cli.mjs profile check "$dir/learner-profile.md" || status=1
+            node tools/cli/src/cli.mjs validate      "$dir/project-plan.md"    || status=1
+            node tools/cli/src/cli.mjs review        "$dir/project-plan.md"    || status=1
+
+            echo "::endgroup::"
+          done
+          exit $status
+
+      # A fresh scaffold SHOULD fail validation — that is the guided-fill signal.
+      # If it ever passes, the template has stopped prompting for the real work.
+      - name: A fresh scaffold must fail validation
+        run: |
+          node tools/cli/src/cli.mjs profile new "CI Demo" --dir /tmp/ci-demo
+          if node tools/cli/src/cli.mjs profile check /tmp/ci-demo/learner-profile.md; then
+            echo "::error::An unfilled profile template passed profile check. The template is no longer prompting for anything."
+            exit 1
+          fi
+          echo "Confirmed: an unfilled template fails, as intended."
+
+  attribution:
+    name: Attribution and privacy guards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Redistributing the CC BY 4.0 standards data is only permitted while the
+      # per-record attribution survives. Checked here as well as in the test
+      # suite, because it is a licensing condition rather than a code concern.
+      - name: Standards records keep license and attribution
+        run: |
+          missing=0
+          for file in framework/standards/**/*.jsonl; do
+            [ -e "$file" ] || continue
+            count=$(grep -c -v '"license"' "$file" || true)
+            if [ "$count" != "0" ]; then
+              echo "::error file=$file::$count record(s) missing a license field"
+              missing=1
+            fi
+            count=$(grep -c -v '"attribution"' "$file" || true)
+            if [ "$count" != "0" ]; then
+              echo "::error file=$file::$count record(s) missing an attribution field"
+              missing=1
+            fi
+          done
+          exit $missing
+
+      # The PBLWorks framework is cited, never redistributed.
+      - name: No source documents redistributed
+        run: |
+          found=$(find . -path ./node_modules -prune -o \
+            \( -name '*.pdf' -o -name '*.docx' -o -name '*.doc' \) -print 2>/dev/null || true)
+          if [ -n "$found" ]; then
+            echo "::error::Document files found. The framework is cited, not redistributed. See NOTICE.md."
+            echo "$found"
+            exit 1
+          fi
+          echo "No PDF or Word documents in the repo."
+
+      # Learner data must never reach a remote.
+      - name: No learner data committed
+        run: |
+          tracked=$(git ls-files learners/ | grep -v -E '^learners/(README\.md|\.gitkeep)$' || true)
+          if [ -n "$tracked" ]; then
+            echo "::error::Learner data is tracked by git. It must never be committed — see learners/README.md."
+            echo "$tracked"
+            exit 1
+          fi
+          echo "learners/ holds only its README."

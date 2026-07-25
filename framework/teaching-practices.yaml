@@ -1,0 +1,176 @@
+# Project Based Teaching Practices
+#
+# What the adult does while the project runs. The design elements describe the
+# project; these describe you.
+#
+# Framework by PBLWorks (seven practices). Descriptions, the solo-context
+# translations, and the failure modes are original writing. See NOTICE.md.
+#
+# In a one-learner setting several of these change shape substantially —
+# "manage activities" is no longer crowd control, and "build the culture" is
+# building a culture of two. The solo_translation field says how.
+
+version: 1
+source: PBLWorks Gold Standard PBL — Project Based Teaching Practices
+source_url: https://www.pblworks.org/what-is-pbl/gold-standard-teaching-practices
+doc: ../docs/04-teaching-practices.md
+rubric: ../rubrics/project-based-teaching-rubric.md
+
+practices:
+  - id: design-and-plan
+    name: Design & Plan
+    summary: >
+      Create or adapt a project for this learner and plan it from launch to
+      culmination, while leaving room for their choices to change it.
+    looks_like_strong:
+      - All eight design elements are genuinely present, not nominally
+      - The plan includes scaffolds, assessment, and a flexible calendar
+      - Resources, experts, and the audience are arranged before week one
+      - The plan expects to change and says where
+    solo_translation: >
+      You can plan far more precisely than a classroom teacher because you know
+      exactly one learner. Use that — the scaffolds should be specific to them,
+      not a generic support menu. The risk is over-planning: leave the choices
+      genuinely open or voice and choice becomes theatre.
+    common_failure: Planning the activities before deciding the learning goals.
+
+  - id: align-to-standards
+    name: Align to Standards
+    summary: >
+      Use standards to build the project, and make the product criteria come
+      from them.
+    looks_like_strong:
+      - Product criteria are visibly derived from specific standards
+      - Every standard has something that provides evidence for it
+      - Rubrics and scaffolds refer back to the standards they serve
+    solo_translation: >
+      Homeschool and tutoring settings often either ignore standards entirely
+      or treat them as a checklist to tick. Neither works. Use them as the
+      answer to "what makes this product good" — that's what they're for.
+    common_failure: >
+      Choosing standards after the project is designed, to justify it. You can
+      always find a standard that sort of fits; that isn't alignment.
+
+  - id: build-the-culture
+    name: Build the Culture
+    summary: >
+      Promote independence, open inquiry, attention to quality, and the idea
+      that work improves rather than being right or wrong.
+    looks_like_strong:
+      - Norms are agreed with the learner, not imposed
+      - The learner takes risks and treats being wrong as information
+      - Revision is normal and expected, not a punishment
+      - The learner usually knows what to do next without asking
+    solo_translation: >
+      A culture of two is intimate and therefore fragile — your mood is the
+      whole climate. The specific thing to build: separating "this draft isn't
+      good yet" from "you aren't good at this." With one learner and one adult,
+      those two collapse into each other easily. Say the distinction out loud.
+    common_failure: >
+      Rescuing. When there's one learner and you love them, the pull to fix
+      their work is enormous. Every rescue teaches that struggle means stop.
+
+  - id: manage-activities
+    name: Manage Activities
+    summary: >
+      Organize tasks, schedules, checkpoints, and resources — with the learner,
+      increasingly by the learner.
+    looks_like_strong:
+      - A visible calendar with real checkpoints the learner tracks
+      - Project management tools the learner owns, not that you own about them
+      - Realistic pacing with slack in it
+    solo_translation: >
+      This stops being crowd control and becomes executive-function
+      scaffolding. The project management log and the visible calendar are
+      doing double duty — they're the project's structure and they're the skill
+      you're teaching. Hand them over progressively; that handover IS the
+      self-directed learning outcome.
+    common_failure: >
+      Holding the schedule in your own head. If the plan lives only with you,
+      the learner is a passenger and cannot develop self-management.
+
+  - id: scaffold-learning
+    name: Scaffold Learner Learning
+    summary: >
+      Provide the supports this learner needs to reach goals they couldn't
+      reach alone — and remove them as they become unnecessary.
+    looks_like_strong:
+      - Scaffolds respond to the learner's actual questions, not a preset sequence
+      - The targeted success skill is explicitly taught, practised, and reflected on
+      - Every scaffold has a plan for coming off
+      - Inquiry is facilitated with as much learner independence as possible
+    solo_translation: >
+      The precision available here is the single biggest advantage of
+      one-on-one PBL. You can scaffold exactly the gap, the day it appears.
+      The trap is the mirror image: scaffolds accumulate and never fade,
+      because nobody else is watching and it's easier for both of you. This is
+      why fade_plan is a required field.
+    common_failure: >
+      Front-loading every support before it's needed, which removes the
+      productive struggle that makes the learning stick.
+
+  - id: assess-learning
+    name: Assess Learner Learning
+    summary: >
+      Use formative and summative assessment of both content and the targeted
+      success skill, including self-assessment.
+    looks_like_strong:
+      - Multiple sources of evidence, not just the final product
+      - Formative assessment happens routinely and changes what you do next
+      - The learner self-assesses against the rubric before you give feedback
+      - The success skill is assessed separately from the content
+    solo_translation: >
+      Individual accountability — the biggest assessment problem in classroom
+      PBL — is free here. What replaces it as the hard problem is objectivity:
+      you are assessing someone you love, whose effort you watched. Anchor
+      hard to written criteria, and get at least one outside voice on the final
+      product. Self-assessment carries more weight in this setting, so teach
+      it deliberately.
+    common_failure: >
+      Assessing effort and growth instead of the work, because you saw the
+      effort. Both matter; record them separately.
+
+  - id: engage-and-coach
+    name: Engage & Coach
+    summary: >
+      Work alongside the learner, and read when they need skill-building,
+      redirection, encouragement, or celebration.
+    looks_like_strong:
+      - Your knowledge of this learner drives real decisions
+      - Goals and criteria are co-defined with them
+      - Their questions steer the inquiry
+      - High expectations, stated and held
+      - Regular, formal reflection — yours as well as theirs
+    solo_translation: >
+      You have the deepest possible knowledge of the learner, which makes
+      coaching easy and boundaries hard. The move that matters is naming which
+      hat you're wearing: "right now I'm your critic, not your parent." Say it
+      explicitly. It gives both of you permission to be rigorous without it
+      being personal.
+    common_failure: >
+      Lowering the bar out of affection, or raising it out of anxiety. Both are
+      about you rather than the work.
+
+# The four equity levers cut across all seven practices.
+# See ../docs/12-equity.md.
+equity_levers:
+  - id: knowledge-of-learner
+    name: Knowledge of the Learner
+    note: >
+      In this setting you have more of this than any classroom teacher ever
+      will. The question is whether you use it to raise the ceiling or lower it.
+  - id: cognitive-demand
+    name: Cognitive Demand
+    note: >
+      High expectations plus real support. Scaffolding is how you keep demand
+      high, not how you reduce it.
+  - id: literacy
+    name: Literacy
+    note: >
+      Deliberate reading, vocabulary, and writing support inside every project,
+      whatever the subject.
+  - id: shared-power
+    name: Shared Power
+    note: >
+      Voice and choice are not motivational garnish; they're how the learner
+      develops agency. Co-construct the criteria.

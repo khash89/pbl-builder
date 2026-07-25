@@ -1,0 +1,49 @@
+name: Framework correction
+description: We've described something wrong, or misattributed it
+labels: [correction]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These are the most valuable issues we get. **Practitioner correction beats author intent** — if a strategy doesn't work the way we described it, we want to know.
+
+        For attribution specifically, see the Corrections section of [NOTICE.md](https://github.com/OWNER/pbl-builder/blob/main/NOTICE.md). Those get fixed promptly.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of correction?
+      options:
+        - A strategy is described wrong, or doesn't work that way in practice
+        - A rubric descriptor doesn't hold up when you use it
+        - The framework itself is misrepresented
+        - Something is misattributed, or reproduces text it shouldn't
+        - A standard's text or code is wrong
+        - A factual error
+    validations:
+      required: true
+
+  - type: input
+    id: file
+    attributes:
+      label: Which file?
+      placeholder: docs/10-strategies/critique-protocols.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong?
+      description: Quote the passage if you can.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What's correct, and how do you know?
+      description: |
+        Practitioner experience is a legitimate answer — "I've run this protocol with 3rd graders for six years and this part doesn't work" is exactly what we want. A source is welcome but not required.
+    validations:
+      required: true
