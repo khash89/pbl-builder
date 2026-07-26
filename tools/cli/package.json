@@ -31,8 +31,8 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test \"test/**/*.test.mjs\"",
-    "test:watch": "node --test --watch \"test/**/*.test.mjs\"",
+    "test": "node --test test/*.test.mjs",
+    "test:watch": "node --test --watch test/*.test.mjs",
     "lint": "node --check src/cli.mjs"
   },
   "dependencies": {
