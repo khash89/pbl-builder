@@ -7,7 +7,7 @@ body:
       value: |
         Examples are the highest-value contribution here. We ship grades 4, 8, and 11 in science, civics, and statistics — so **K–2, the arts, world languages, and CTE are wide open**, and so is anything with two learners sharing a project.
 
-        Full path for contributing one: [CONTRIBUTING.md](https://github.com/OWNER/pbl-builder/blob/main/CONTRIBUTING.md#contributing-an-exemplar)
+        Full path for contributing one: [CONTRIBUTING.md](https://github.com/khash89/pbl-builder/blob/main/CONTRIBUTING.md#contributing-an-exemplar)
 
   - type: dropdown
     id: kind

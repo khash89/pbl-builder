@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/OWNER/pbl-builder/schema/project-plan.schema.json",
+  "$id": "https://github.com/khash89/pbl-builder/schema/project-plan.schema.json",
   "title": "PBL Builder Project Plan",
   "description": "A Gold Standard PBL project designed for one specific learner. Lives in the YAML frontmatter of a project-plan.md. The body of that file carries the required headings: Project Summary, Why This Project For This Learner, Week-by-Week Plan, Notes & Adaptations.",
   "type": "object",

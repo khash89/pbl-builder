@@ -11,7 +11,7 @@ learner-profile.md  ──►  project-plan.md  ──►  pbl review
    who they are          the project           does it hold up?
 ```
 
-[![CI](https://github.com/OWNER/pbl-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/pbl-builder/actions/workflows/ci.yml)
+[![CI](https://github.com/khash89/pbl-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/khash89/pbl-builder/actions/workflows/ci.yml)
 
 ---
 
@@ -28,7 +28,7 @@ The agent reads [`CLAUDE.md`](CLAUDE.md), interviews you, writes a learner profi
 You can also install just the skills into an existing project:
 
 ```bash
-npx skills add OWNER/pbl-builder
+npx skills add khash89/pbl-builder
 ```
 
 ### Path 2 — You want to do it yourself

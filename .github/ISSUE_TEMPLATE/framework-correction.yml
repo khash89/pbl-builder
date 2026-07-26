@@ -7,7 +7,7 @@ body:
       value: |
         These are the most valuable issues we get. **Practitioner correction beats author intent** — if a strategy doesn't work the way we described it, we want to know.
 
-        For attribution specifically, see the Corrections section of [NOTICE.md](https://github.com/OWNER/pbl-builder/blob/main/NOTICE.md). Those get fixed promptly.
+        For attribution specifically, see the Corrections section of [NOTICE.md](https://github.com/khash89/pbl-builder/blob/main/NOTICE.md). Those get fixed promptly.
 
   - type: dropdown
     id: kind

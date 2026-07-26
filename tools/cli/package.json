@@ -43,10 +43,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/pbl-builder.git"
+    "url": "git+https://github.com/khash89/pbl-builder.git"
   },
   "bugs": {
-    "url": "https://github.com/OWNER/pbl-builder/issues"
+    "url": "https://github.com/khash89/pbl-builder/issues"
   },
-  "homepage": "https://github.com/OWNER/pbl-builder#readme"
+  "homepage": "https://github.com/khash89/pbl-builder#readme"
 }

@@ -85,4 +85,4 @@ The example learners (Maya, Devon, Amara) are invented. They are not real childr
 
 ## Corrections
 
-If you believe something here misattributes your work, misrepresents a framework, or reproduces text it shouldn't, please [open an issue](https://github.com/OWNER/pbl-builder/issues/new/choose) with the specifics. We'll fix it promptly — getting attribution right matters more to us than any individual file.
+If you believe something here misattributes your work, misrepresents a framework, or reproduces text it shouldn't, please [open an issue](https://github.com/khash89/pbl-builder/issues/new/choose) with the specifics. We'll fix it promptly — getting attribution right matters more to us than any individual file.

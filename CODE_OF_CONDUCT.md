@@ -43,7 +43,7 @@ This applies in all project spaces — issues, pull requests, discussions, commi
 
 ## Enforcement
 
-Report unacceptable behavior by [opening an issue](https://github.com/OWNER/pbl-builder/issues) if it's public and minor, or by contacting the maintainers privately for anything sensitive. Reports involving child privacy or harassment should go through the private channel.
+Report unacceptable behavior by [opening an issue](https://github.com/khash89/pbl-builder/issues) if it's public and minor, or by contacting the maintainers privately for anything sensitive. Reports involving child privacy or harassment should go through the private channel.
 
 All reports will be reviewed and investigated promptly and fairly. Maintainers will respect the privacy and security of the reporter.
 

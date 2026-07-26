@@ -129,4 +129,4 @@ If you have a key, configure the MCP server and your agent will prefer it (see [
 
 ## Corrections
 
-If a standard here is wrong, misattributed, or shouldn't be redistributed, [open an issue](https://github.com/OWNER/pbl-builder/issues) and we'll fix it quickly. For upstream data errors, report them to [learning-commons-org/knowledge-graph](https://github.com/learning-commons-org/knowledge-graph) as well — we're a downstream copy and can only patch our snapshot.
+If a standard here is wrong, misattributed, or shouldn't be redistributed, [open an issue](https://github.com/khash89/pbl-builder/issues) and we'll fix it quickly. For upstream data errors, report them to [learning-commons-org/knowledge-graph](https://github.com/learning-commons-org/knowledge-graph) as well — we're a downstream copy and can only patch our snapshot.

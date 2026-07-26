@@ -104,5 +104,5 @@ Standards data: Learning Commons Knowledge Graph, CC BY 4.0. Thinking routines: 
 
 Full detail in [`NOTICE.md`](NOTICE.md).
 
-[Unreleased]: https://github.com/OWNER/pbl-builder/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/OWNER/pbl-builder/releases/tag/v0.1.0
+[Unreleased]: https://github.com/khash89/pbl-builder/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/khash89/pbl-builder/releases/tag/v0.1.0

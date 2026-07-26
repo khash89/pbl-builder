@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/OWNER/pbl-builder/schema/learner-profile.schema.json",
+  "$id": "https://github.com/khash89/pbl-builder/schema/learner-profile.schema.json",
   "title": "PBL Builder Learner Profile",
   "description": "Describes one learner. This is the primary input to project design — the project is designed outward from this document. Lives in the YAML frontmatter of learners/<slug>/learner-profile.md.",
   "type": "object",

@@ -4,5 +4,5 @@ contact_links:
     url: https://www.pblworks.org/resources
     about: For the official Gold Standard framework documents and rubrics. They are free, better field-tested than ours, and PBLWorks deserves the traffic.
   - name: Attribution problem
-    url: https://github.com/OWNER/pbl-builder/blob/main/NOTICE.md
+    url: https://github.com/khash89/pbl-builder/blob/main/NOTICE.md
     about: If you believe we have misattributed your work or reproduced text we shouldn't. Open a normal issue and reference NOTICE.md — these get fixed fast.

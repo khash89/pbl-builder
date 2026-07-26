@@ -30,7 +30,7 @@ Thanks for being here. This project is most useful when it covers grade bands, s
 ## Setup
 
 ```bash
-git clone https://github.com/OWNER/pbl-builder.git
+git clone https://github.com/khash89/pbl-builder.git
 cd pbl-builder/tools/cli
 npm install
 npm test

@@ -2,7 +2,7 @@
 
 Design Gold Standard Project Based Learning projects around **one learner**.
 
-Part of [PBL Builder](https://github.com/OWNER/pbl-builder). Node 20+.
+Part of [PBL Builder](https://github.com/khash89/pbl-builder). Node 20+.
 
 ```bash
 npx pbl-builder --help
